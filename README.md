@@ -7,7 +7,7 @@ If an Oculus is connected, the game will automatically boot into VR, otherwise i
 ##### Development
 Clone the repository, open folder, open the solution with unity. Must have Blender installed in order to have working models and prefabs.
 ### Screenshots and GIFs
-![](Shooting-Desktop.gif)
-![](Shooting-Image-VR.png)
-![](Placing-Towers-VR.gif)
-![](Towers-Shooting-VR.gif)
+![Shooting Enemies on Desktop](Shooting-Desktop.gif)
+![Holding Gun on VR](Shooting-Image-VR.png)
+![Placing Towers on VR](Placing-Towers-VR.gif)
+![Towers Shooting](Towers-Shooting-VR.gif)
