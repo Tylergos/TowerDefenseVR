@@ -7,7 +7,7 @@ Download the repository, open the folder called BuildOutput, run the Exe file.
 If an Oculus is connected, the game will automatically boot into VR, otherwise it will boot into desktop mode.
 
 ##### Development
-Clone the repository, open folder, open the solution with unity. Must have Blender installed in order to have working models and prefabs.
+Clone the repository, open the TowerDefenseVR folder, open the solution with unity. Must have Blender installed in order to have working models and prefabs.
 
 ### Screenshots and GIFs
 ![Shooting Enemies on Desktop](ShootingDesktop.gif)
