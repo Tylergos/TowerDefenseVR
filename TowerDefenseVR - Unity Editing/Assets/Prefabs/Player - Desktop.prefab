@@ -49,9 +49,9 @@ MonoBehaviour:
   - {fileID: 3823618852367585185, guid: 5691aec3dc258774ab8f1fda438220fe, type: 3}
   - {fileID: 6586414041329528205, guid: 6f9ab6b5e185a54498e0c9fbc27a5ca5, type: 3}
   - {fileID: 4876443101619480368, guid: 93a7941df0d8b0f4e9c7bc316a9801eb, type: 3}
-  swordPrefab: {fileID: 609776720282530086, guid: e0d77ae17a331ce48ba669ac1ab4914c,
+  swordPrefab: {fileID: 5123943284109997771, guid: e0d77ae17a331ce48ba669ac1ab4914c,
     type: 3}
-  gunPrefab: {fileID: 4876503650091502259, guid: 881d31da90f86b64cadf5f13eef37f3a,
+  gunPrefab: {fileID: 3087129569687472625, guid: 881d31da90f86b64cadf5f13eef37f3a,
     type: 3}
   playerCamera: {fileID: 8185760856519837037}
   unplacedTowerShader: {fileID: 0}
