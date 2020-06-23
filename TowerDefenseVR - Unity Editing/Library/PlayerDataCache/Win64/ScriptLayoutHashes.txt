@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/melissa/Downloads/New folder/TowerDefenseVR - Copy/BuildOutput/New Unity Project.exe
+C:/Users/melissa/Documents/Tower Defense Build Output/New Unity Project.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -227,6 +227,7 @@ b5d01a44c9a694c6b9bce4626dd0a12e Oculus.VR.dll:.OVRHandTest
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.OVRLipSync
 0182aac3fd8bfdeff27021b9548c3a6a Assembly-CSharp.dll:OculusSampleFramework.ColorGrabbable
 6d39c48b69b486476ba524949d845693 Assembly-CSharp.dll:.LocomotionController
+257b1ece6f4168c9498f106867367b71 Assembly-CSharp.dll:.Grid
 45f2a4e63a8b43166e3f85c4d543f00d Oculus.VR.dll:.OVRSceneLoader
 a59e183d3f86325b6f381a8fc91f951c Assembly-CSharp.dll:OculusSampleFramework.DistanceGrabbable
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:OculusSampleFramework.InteractableToolsInputRouter

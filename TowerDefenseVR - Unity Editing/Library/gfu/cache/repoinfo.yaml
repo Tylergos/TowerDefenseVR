@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2020-06-21T16:23:23.606-03:00
-  initializedAtString: 2020-06-21T16:23:23.606-03:00
+  lastUpdatedAtString: 2020-06-22T20:22:58.781-03:00
+  initializedAtString: 2020-06-22T20:22:58.781-03:00
   currentGitRemote:
     name: origin
     url: https://github.com/Tylergos/TowerDefenseVR.git

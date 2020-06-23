@@ -90,6 +90,8 @@ public class CharacterScript : MonoBehaviour
 
     public bool isPlacing;
 
+    private Grid aiGrid;
+
     // Use this for initialization
     protected void Start()
     {
@@ -122,6 +124,9 @@ public class CharacterScript : MonoBehaviour
         IncreaseHealth(0);
         IncreaseXP(0);
         IncreaseMana(0);
+
+
+        aiGrid = GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>();
     }
 
     // Update is called once per frame
@@ -190,6 +195,9 @@ public class CharacterScript : MonoBehaviour
             SelectWeaponDesktop();
             AttackDesktop();
         }
+        
+        //sets player position node in AI grid
+        aiGrid.SetPlayerNode(transform.position);
     }
 
     public bool IsBuildMode()

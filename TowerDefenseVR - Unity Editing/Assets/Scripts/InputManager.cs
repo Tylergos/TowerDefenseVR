@@ -11,12 +11,12 @@ public class InputManager : MonoBehaviour
     OVRCameraRig cameraRig;
     Vector3 diff;
     Vector3 orig;
-    bool isPlacing;
+    //bool isPlacing;
 
     private void Start()
     {
         cameraRig = player.GetComponentInChildren<OVRCameraRig>();
-        isPlacing = false;
+        //isPlacing = false;
     }
 
     public void SetPlayer(GameObject player)

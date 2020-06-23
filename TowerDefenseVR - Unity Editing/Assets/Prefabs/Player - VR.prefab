@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4353788231932339419}
   - component: {fileID: 8308586233602265625}
   - component: {fileID: 7796648978506738890}
+  - component: {fileID: 3735001039907077057}
   m_Layer: 9
   m_Name: Player - VR
   m_TagString: Player
@@ -352,6 +353,28 @@ MonoBehaviour:
   maxHealth: 10
   maxLevelXP: 5
   maxMana: 10
+  isPlacing: 0
+--- !u!114 &3735001039907077057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150103604619366857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf162022e230bb745ab2ec48cd357f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraRig: {fileID: 3088787911313256597}
+  EnableCollision: 1
+  CollideLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  MaxFade: 1
+  FadeMinDistance: 0.25
+  PreferredHeight: 1
+  FadeMaxDistance: 0.35
 --- !u!1 &7061324787605062855
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +566,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7005149185212157419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3088787911313256597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5470428978750225790, guid: 1ffe3be7467580e448ace1b768dae852,
+    type: 3}
+  m_PrefabInstance: {fileID: 7005149185212157419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501206901305493912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6252286184229019515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4031811528309969552, guid: 1ffe3be7467580e448ace1b768dae852,
