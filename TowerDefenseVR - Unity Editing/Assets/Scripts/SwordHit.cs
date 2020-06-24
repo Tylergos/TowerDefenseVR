@@ -38,10 +38,10 @@ public class SwordHit : MonoBehaviour
 
                         other.attachedRigidbody.AddRelativeForce(Vector3.back * knockback);
                     }
-                    if (enemy.invincibleFrames <= 0)
+                    if (enemy.invincibleTime <= Time.time)
                     {
                         enemy.health--;
-                        enemy.invincibleFrames = 10;
+                        enemy.invincibleTime = Time.time + 0.3f;
                     }
                 }
             }
@@ -52,10 +52,10 @@ public class SwordHit : MonoBehaviour
                     try
                     {
                         player = other.GetComponent<CharacterScript>();
-                        if (player.GetIFrames() <= 0)
+                        if (player.GetITime() <= Time.time)
                         {
                             player.ReduceHealth(1);
-                            player.SetIFrames(30);
+                            player.AddITime(0.666f);
                         }
                     } catch{ };
                 }

@@ -16,7 +16,7 @@ public class CharacterScript : MonoBehaviour
     [HideInInspector]
     public bool ground;
 
-    private int jumpSleep;
+    private float jumpSleep;
     private Collider col;
 
     [SerializeField]
@@ -64,7 +64,7 @@ public class CharacterScript : MonoBehaviour
     public GameObject[] placedTowers = new GameObject[99];
 
     [HideInInspector]
-    public int tCountdown = 60;
+    public float teleporterTime;
     [HideInInspector]
     public bool teleporterCount = false;
     [HideInInspector]
@@ -72,7 +72,7 @@ public class CharacterScript : MonoBehaviour
     [HideInInspector]
     public Teleporter teleporter;
     [HideInInspector]
-    public int waitForExit;
+    public float waitForExit;
 
     [SerializeField]
     private int maxHealth;
@@ -84,7 +84,7 @@ public class CharacterScript : MonoBehaviour
     private int maxMana;
     private int mana;
     
-    private int iFrames;
+    private float invincibleTime;
 
     private bool isVR;
 
@@ -95,12 +95,14 @@ public class CharacterScript : MonoBehaviour
     // Use this for initialization
     protected void Start()
     {
-        waitForExit = 0;
-        jumpSleep = 0;
+        waitForExit = Time.time;
+        teleporterTime = Time.time;
+        jumpSleep = Time.time;
         shotFired = false;
         canPlace = false;
         totalTowerNum = 0;
         unplacedTowerMask = LayerMask.GetMask("UnplacedTower");
+        unplacedTowerMask |= Physics.IgnoreRaycastLayer;
         unplacedTowerMask = ~unplacedTowerMask;
         enemyMask = LayerMask.GetMask("Enemy");
         placedTowerMask = LayerMask.GetMask("PlacedTower");
@@ -112,7 +114,7 @@ public class CharacterScript : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         col = this.GetComponent<Collider>();
         rotationMode = false;
-        iFrames = 0;
+        invincibleTime = Time.time;
         xp = 0;
         xpBar = GameObject.FindGameObjectWithTag("UIXP");
         healthBar = GameObject.FindGameObjectWithTag("UIHealth");
@@ -134,27 +136,20 @@ public class CharacterScript : MonoBehaviour
     {
         if (teleporterCount)
         {
-            tCountdown--;
-            if (tCountdown <= 0 && onTeleporter && waitForExit == 0)
+            if (teleporterTime <= Time.time && onTeleporter && waitForExit <= Time.time)
             {
                 onTeleporter = false;
                 teleporterCount = false;
                 teleporter.Teleport(this.gameObject);
-                tCountdown = 60;
-                waitForExit = 2;
+                teleporterTime = Time.time + 1;
+                waitForExit = Time.time + 0.1f;
             }
-            else if (tCountdown <= 0 && !onTeleporter)
+            else if (teleporterTime <= Time.time && !onTeleporter)
             {
                 onTeleporter = false;
-                tCountdown = 60;
+                teleporterTime = Time.time + 1;
                 teleporterCount = false;
             }
-        }
-
-        //invincibility frames
-        if (iFrames > 0)
-        {
-            iFrames--;
         }
 
         //resets velocity to prevent sliding
@@ -172,10 +167,6 @@ public class CharacterScript : MonoBehaviour
                 Turning();
         }
 
-        if (jumpSleep > 0)
-        {
-            jumpSleep--;
-        }
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
@@ -205,14 +196,17 @@ public class CharacterScript : MonoBehaviour
         return buildMode;
     }
 
-    public void SetIFrames(int num)
+    public void AddITime(float seconds)
     {
-        iFrames = num;
+        if (Time.time + seconds > invincibleTime)
+        {
+            invincibleTime = Time.time + seconds;
+        }
     }
 
-    public int GetIFrames()
+    public float GetITime()
     {
-        return iFrames;
+        return invincibleTime;
     }
 
     public GameObject GetCurWeapon()
@@ -289,10 +283,10 @@ public class CharacterScript : MonoBehaviour
 
                         hit.rigidbody.AddRelativeForce(Vector3.back * 200);
                     }
-                    if (enemy.invincibleFrames <= 0)
+                    if (enemy.invincibleTime <= Time.time)
                     {
                         enemy.health--;
-                        enemy.invincibleFrames = 10;
+                        enemy.invincibleTime = Time.time + 0.3f;
                     }
                 }
             }
@@ -573,7 +567,7 @@ public class CharacterScript : MonoBehaviour
 
     public void ReduceHealth(int damage)
     {
-        if (iFrames <= 0)
+        if (invincibleTime <= Time.time)
         {
             health -= damage;
             if (health < 0)
@@ -627,9 +621,9 @@ public class CharacterScript : MonoBehaviour
     //jumping
     public void Jump()
     {
-        if (ground && rb.velocity.y < 0.1 && rb.velocity.y > -0.1 && jumpSleep <= 0)
+        if (ground && rb.velocity.y < 0.1 && rb.velocity.y > -0.1 && jumpSleep <= Time.time)
         {
-            jumpSleep = 3;
+            jumpSleep = Time.time + 0.1f;
             rb.AddForce(0, 20000, 0);
         }
     }

@@ -16,6 +16,7 @@ public class VRGun : MonoBehaviour
         a = this.gameObject.GetComponent<Animator>();
 
         unplacedTowerMask = LayerMask.GetMask("UnplacedTower");
+        unplacedTowerMask |= Physics.IgnoreRaycastLayer;
         unplacedTowerMask = ~unplacedTowerMask;
         nextShot = Time.time + fireDelay;
     }
@@ -36,10 +37,10 @@ public class VRGun : MonoBehaviour
                     enemy.stunTime = Time.time + 1;
                     hit.rigidbody.AddRelativeForce(Vector3.back * 200);
                 }
-                if (enemy.invincibleFrames <= 0)
+                if (enemy.invincibleTime <= Time.time)
                 {
                     enemy.health--;
-                    enemy.invincibleFrames = 10;
+                    enemy.invincibleTime = Time.time + 0.3f;
                 }
             }
         }

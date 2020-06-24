@@ -14,7 +14,7 @@ public class EnemyNavigation : MonoBehaviour
     [HideInInspector]
     public float stunTime;
     [HideInInspector]
-    public int invincibleFrames;
+    public float invincibleTime;
     
     public int health;
     [SerializeField]
@@ -37,7 +37,7 @@ public class EnemyNavigation : MonoBehaviour
     LayerMask unplacedTowerMask;
 
     [HideInInspector]
-    public int tCountdown = 60;
+    public float teleporterTime;
     [HideInInspector]
     public bool teleporterCount = false;
     [HideInInspector]
@@ -45,7 +45,7 @@ public class EnemyNavigation : MonoBehaviour
     [HideInInspector]
     public Teleporter teleporter;
     [HideInInspector]
-    public int waitForExit;
+    public float waitForExit;
 
     private GroundScript gs;
     private int pathChoice;
@@ -62,18 +62,19 @@ public class EnemyNavigation : MonoBehaviour
     void Start()
     {
         grounded = false;
-        waitForExit = 0;
+        waitForExit = Time.time;
         //creates mask for placing tower preview
         unplacedTowerMask = LayerMask.GetMask("UnplacedTower");
         unplacedTowerMask = ~unplacedTowerMask;
 
         col = this.GetComponent<Collider>();
         attackMode = false;
-        invincibleFrames = 10;
+        invincibleTime = Time.time;
         rb = this.GetComponent<Rigidbody>();
         stun = false;
         pathChoice = Random.Range(0, 2);
         meleeAnimator = this.GetComponentInChildren<Animator>();
+        teleporterTime = Time.time;
     }
 
     public void setPlayer(GameObject player)
@@ -161,11 +162,6 @@ public class EnemyNavigation : MonoBehaviour
         {
             Attacking(attackObject);
         }
-        
-        if (invincibleFrames > 0)
-        {
-            invincibleFrames--;
-        }
 
         if (stun && Time.time > stunTime)
         {
@@ -182,20 +178,19 @@ public class EnemyNavigation : MonoBehaviour
 
         if (teleporterCount)
         {
-            tCountdown--;
             //prevents teleport looping
-            if (tCountdown <= 0 && onTeleporter && waitForExit == 0)
+            if (teleporterTime <= Time.time && onTeleporter && waitForExit <= Time.time)
             {
                 onTeleporter = false;
                 teleporterCount = false;
                 teleporter.Teleport(this.gameObject);
-                tCountdown = 60;
-                waitForExit = 2;
+                teleporterTime = Time.time + 1;
+                waitForExit = Time.time + 0.1f;
             }
-            else if (tCountdown <= 0 && !onTeleporter)
+            else if (teleporterTime <= Time.time && !onTeleporter)
             {
                 onTeleporter = false;
-                tCountdown = 60;
+                teleporterTime = Time.time + 1;
                 teleporterCount = false;
             }
         }

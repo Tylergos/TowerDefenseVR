@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2349007411651158400}
   - component: {fileID: 1409507481483205354}
   - component: {fileID: 5490601395789731526}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: WeaponCollider
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 2851805385849865498}
   - component: {fileID: 8222579031624039133}
   - component: {fileID: 6269211014741156252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemySword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -134,6 +134,94 @@ PrefabInstance:
     - target: {fileID: 100042, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: ff078c93bfd272f4e912707a1f1be2e6, type: 3}
       propertyPath: m_LocalPosition.x

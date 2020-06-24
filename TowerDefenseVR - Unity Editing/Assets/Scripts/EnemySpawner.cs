@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemies > 0)
         {
-            if (Time.time > nextSpawn)
+            if (Time.time >= nextSpawn)
             {
                 nextSpawn = Time.time + spawnDelay;
                 newEnemy = Instantiate(currentEnemyTypes[enemies - 1], spawn.transform.position, spawn.transform.rotation, parent.transform);
@@ -94,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            if (Time.time > nextRoundTime)
+            if (Time.time >= nextRoundTime)
             {
                 GameObject newSpawner = Instantiate(this.gameObject);
                 newSpawner.GetComponent<EnemySpawner>().SetPlayer(player);

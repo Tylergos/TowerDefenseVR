@@ -45,8 +45,6 @@ public class Teleporter : MonoBehaviour
             {
                 c = other.gameObject.GetComponent<CharacterScript>();
                 c.onTeleporter = false;
-                if (c.waitForExit > 0)
-                    c.waitForExit--;
             }
             catch { };
         }
@@ -54,8 +52,6 @@ public class Teleporter : MonoBehaviour
         {
             e = other.gameObject.GetComponent<EnemyNavigation>();
             e.onTeleporter = false;
-            if (e.waitForExit > 0)
-                e.waitForExit--;
         }
     }
 }
