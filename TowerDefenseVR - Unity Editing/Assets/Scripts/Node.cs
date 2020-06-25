@@ -19,9 +19,4 @@ public class Node
         worldPosition = pos;
         walkable = walk;
     }
-
-    public void addNeighbour(Node neighbour)
-    {
-        neighbours[neighbours.Length] = neighbour;
-    }
 }

@@ -33,26 +33,32 @@ public class EnemySpawner : MonoBehaviour
         CalculateNumEnemies();
         CalculateEnemyStatMod();
         SelectEnemyTypes();
+
+        GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().SetSpawnerNode(spawn.transform.position);
     }
 
     public void SetPlayer(GameObject playerObject)
     {
+        //sets player enemy is tracking once spawned
         player = playerObject;
     }
 
     private void CalculateNumEnemies()
     {
+        //calculates the number of enemies to spawn in the wave
         enemies = Bag.bag.GetLevel() * 1;
         Bag.bag.SetEnemiesRemaining(enemies);
     }
 
     private void CalculateEnemyStatMod()
     {
+        //calculates the modifications to enemy stats spawned in the wave
         statMod = (1 + (Bag.bag.GetLevel() * 0.05f));
     }
 
     private void SelectEnemyTypes()
     {
+        //selects the enemies being spawned from possible enemies
         currentEnemyTypes = new GameObject[enemies];
         for (int i = 0; i < enemies; i++)
         {
@@ -62,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemies()
     {
+        //Spawns the enemies
         if (enemies > 0)
         {
             if (Time.time >= nextSpawn)
@@ -76,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void IsAllDead()
     {
+        //Checks if all enemies are dead and begins next round
         if (Bag.bag.GetEnemiesRemaining() <= 0)
         {
             roundOver = true;

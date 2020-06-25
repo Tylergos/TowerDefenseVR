@@ -14,4 +14,13 @@ public class CheckPoints : MonoBehaviour
             other.GetComponent<EnemyNavigation>().ReachedEnd();
         }
     }
+
+    private void Start()
+    {
+        if (endPoint)
+        {
+            //sets end point on AI pathfinding grid
+            GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().SetEndNode(this.transform.position);
+        }
+    }
 }

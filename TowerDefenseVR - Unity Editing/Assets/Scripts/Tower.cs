@@ -15,15 +15,14 @@ public class Tower : MonoBehaviour
     private RaycastHit hit;
     private TowerCollider viewCollider;
     private GameObject target;
-    private bool start;
-    private NavMeshObstacle o;
     private Vector3 shotLocation;
     private float distanceTime;
 
     private float bulletSpeed;
     private float shotTimer;
     private float nextShot;
-    
+
+    private bool placed = false;
 
     [SerializeField]
     private GameObject fireball;
@@ -35,9 +34,19 @@ public class Tower : MonoBehaviour
         bulletSpeed = 15;
         viewCollider = this.gameObject.GetComponentInChildren<TowerCollider>();
         groundWallsEnemies = LayerMask.GetMask("Enemy") | LayerMask.GetMask("GroundAndWalls");
-        o = this.GetComponent<NavMeshObstacle>();
-        o.enabled = false;
-        start = true;
+        nextShot = Time.time;
+    }
+
+    private void OnDestroy()
+    {
+        if (placed)
+        {
+            try
+            {
+                GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().RemoveTowerNode(this.gameObject);
+
+            } catch { };
+        }
     }
 
     // Update is called once per frame
@@ -62,18 +71,25 @@ public class Tower : MonoBehaviour
 
     private void Shoot(Vector3 e)
     {
-        if (Time.time > nextShot)
+        if (Time.time >= nextShot)
         {
             GameObject g = Instantiate(fireball, this.transform.position, this.transform.rotation);
-            g.GetComponent<Fireball>().GetDirectionSpeed(e, bulletSpeed);
+            g.GetComponentInChildren<Fireball>().SetDirectionSpeed(e, bulletSpeed);
             nextShot = Time.time + shotTimer;
         }
     }
-    
+
+    public void TowerPlaced()
+    {
+        this.gameObject.layer = 12;
+        GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().AddTowerNode(this.gameObject);
+        placed = true;
+    }
+
     private void Sight()
     {
         //checks if tower is placed
-        if (this.gameObject.layer == 12)
+        if (placed)
         {
             target = null;
             visibleEnemies = viewCollider.GetEnemiesInView();

@@ -41,11 +41,7 @@ public class EnemyNavigation : MonoBehaviour
     [HideInInspector]
     public bool teleporterCount = false;
     [HideInInspector]
-    public bool onTeleporter = false;
-    [HideInInspector]
     public Teleporter teleporter;
-    [HideInInspector]
-    public float waitForExit;
 
     private GroundScript gs;
     private int pathChoice;
@@ -62,7 +58,6 @@ public class EnemyNavigation : MonoBehaviour
     void Start()
     {
         grounded = false;
-        waitForExit = Time.time;
         //creates mask for placing tower preview
         unplacedTowerMask = LayerMask.GetMask("UnplacedTower");
         unplacedTowerMask = ~unplacedTowerMask;
@@ -179,19 +174,11 @@ public class EnemyNavigation : MonoBehaviour
         if (teleporterCount)
         {
             //prevents teleport looping
-            if (teleporterTime <= Time.time && onTeleporter && waitForExit <= Time.time)
+            if (teleporterTime <= Time.time && teleporter != null)
             {
-                onTeleporter = false;
                 teleporterCount = false;
                 teleporter.Teleport(this.gameObject);
-                teleporterTime = Time.time + 1;
-                waitForExit = Time.time + 0.1f;
-            }
-            else if (teleporterTime <= Time.time && !onTeleporter)
-            {
-                onTeleporter = false;
-                teleporterTime = Time.time + 1;
-                teleporterCount = false;
+                teleporterTime = Time.time + 5f;
             }
         }
     }

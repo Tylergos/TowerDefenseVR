@@ -17,9 +17,13 @@ public class Grid : MonoBehaviour
     private Vector3 bottomLeftFront, bottomLeftBack, bottomRightFront, bottomRightBack, topLeftFront, topLeftBack, topRightFront, topRightBack;
 
     private Node playerNode;
+    private Node spawnNode;
+    private Node endNode;
     
+    private Dictionary<GameObject, Node> towerToNode;
+    private Dictionary<Node, GameObject> nodeToTower;
 
-    private void Start()
+    private void Awake()
     {
         //+z is forward, +x is right, +y is top
         //Calculate the world position of each vertex of the grid
@@ -45,6 +49,8 @@ public class Grid : MonoBehaviour
         unwalkable = LayerMask.GetMask("Unwalkable");
 
         CreateGrid();
+        towerToNode = new Dictionary<GameObject, Node>();
+        nodeToTower = new Dictionary<Node, GameObject>();
     }
 
     private void CreateGrid()
@@ -109,7 +115,33 @@ public class Grid : MonoBehaviour
 
     public void SetPlayerNode(Vector3 pos)
     {
+        //sets player node on grid
         playerNode = WorldToNode(pos);
+    }
+
+    public void SetEndNode(Vector3 pos)
+    {
+        //sets end node on grid
+        endNode = WorldToNode(pos);
+    }
+
+    public void SetSpawnerNode(Vector3 pos)
+    {
+        spawnNode = WorldToNode(pos);
+    }
+
+    public void AddTowerNode(GameObject tower)
+    {
+        //adds tower to dictionary
+        towerToNode.Add(tower, WorldToNode(tower.transform.position));
+        nodeToTower.Add(towerToNode[tower], tower);
+    }
+
+    public void RemoveTowerNode(GameObject tower)
+    {
+        //removes tower from dictionary
+        nodeToTower.Remove(towerToNode[tower]);
+        towerToNode.Remove(tower);
     }
 
     private void OnDrawGizmos()
@@ -125,6 +157,18 @@ public class Grid : MonoBehaviour
                 if (node == playerNode)
                 {
                     Gizmos.color = Color.green;
+                }
+                else if (nodeToTower.ContainsKey(node))
+                {
+                    Gizmos.color = Color.black;
+                }
+                else if (node == spawnNode)
+                {
+                    Gizmos.color = Color.blue;
+                }
+                else if (node == endNode)
+                {
+                    Gizmos.color = Color.magenta;
                 }
                 else if (node.walkable)
                 {

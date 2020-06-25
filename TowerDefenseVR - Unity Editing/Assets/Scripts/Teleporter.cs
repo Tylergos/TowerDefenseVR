@@ -18,7 +18,6 @@ public class Teleporter : MonoBehaviour
             {
                 c = other.gameObject.GetComponent<CharacterScript>();
                 c.teleporter = this;
-                c.onTeleporter = true;
                 c.teleporterCount = true;
             }
             catch { };
@@ -27,7 +26,6 @@ public class Teleporter : MonoBehaviour
         {
             e = other.gameObject.GetComponent<EnemyNavigation>();
             e.teleporter = this;
-            e.onTeleporter = true;
             e.teleporterCount = true;
         }
     }
@@ -44,14 +42,14 @@ public class Teleporter : MonoBehaviour
             try
             {
                 c = other.gameObject.GetComponent<CharacterScript>();
-                c.onTeleporter = false;
+                c.teleporter = null;
             }
             catch { };
         }
         else if (other.gameObject.tag.Equals("Agent"))
         {
             e = other.gameObject.GetComponent<EnemyNavigation>();
-            e.onTeleporter = false;
+            e.teleporter = null;
         }
     }
 }

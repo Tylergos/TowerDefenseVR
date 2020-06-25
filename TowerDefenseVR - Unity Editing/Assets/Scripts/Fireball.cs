@@ -23,8 +23,7 @@ public class Fireball : MonoBehaviour
 
         if (Time.time >= startTime + lifeTime)
         {
-            //Debug.Log("Destroyed after lifetime");
-            Destroy(this.gameObject);
+            Destroy(this.transform.parent.gameObject);
         }
     }
 
@@ -32,21 +31,19 @@ public class Fireball : MonoBehaviour
     {
         if (other.tag == "Agent")
         {
-            Destroy(this.gameObject);
+            Destroy(this.transform.parent.gameObject);
             EnemyNavigation enemy = other.GetComponent<EnemyNavigation>();
             enemy.health--;
-            //Debug.Log("Hit Enemy");
         }
         if (other.tag == "Ground" || other.tag == "Wall")
         {
-            Destroy(this.gameObject);
-            //Debug.Log("Hit Ground or Wall");
+            Destroy(this.transform.parent.gameObject);
         }
     }
 
-    public void GetDirectionSpeed(Vector3 e, float s)
+    public void SetDirectionSpeed(Vector3 e, float s)
     {
-        direction =Vector3.Normalize( e - this.transform.position);
+        direction = Vector3.Normalize( e - this.transform.position);
         speed = s;
     }
 }

@@ -48,8 +48,7 @@ public class CharacterScript : MonoBehaviour
     private LayerMask unplacedTowerMask;
     private LayerMask placedTowerMask;
     private LayerMask enemyMask;
-
-    [SerializeField]
+    
     private Renderer unplacedTowerShader;
 
     private EnemyNavigation enemy;
@@ -62,17 +61,12 @@ public class CharacterScript : MonoBehaviour
     private bool rotationMode;
 
     public GameObject[] placedTowers = new GameObject[99];
-
-    [HideInInspector]
-    public float teleporterTime;
+    
+    private float teleporterTime;
     [HideInInspector]
     public bool teleporterCount = false;
     [HideInInspector]
-    public bool onTeleporter = false;
-    [HideInInspector]
     public Teleporter teleporter;
-    [HideInInspector]
-    public float waitForExit;
 
     [SerializeField]
     private int maxHealth;
@@ -95,7 +89,6 @@ public class CharacterScript : MonoBehaviour
     // Use this for initialization
     protected void Start()
     {
-        waitForExit = Time.time;
         teleporterTime = Time.time;
         jumpSleep = Time.time;
         shotFired = false;
@@ -136,19 +129,11 @@ public class CharacterScript : MonoBehaviour
     {
         if (teleporterCount)
         {
-            if (teleporterTime <= Time.time && onTeleporter && waitForExit <= Time.time)
+            if (teleporterTime <= Time.time && teleporter != null)
             {
-                onTeleporter = false;
                 teleporterCount = false;
                 teleporter.Teleport(this.gameObject);
-                teleporterTime = Time.time + 1;
-                waitForExit = Time.time + 0.1f;
-            }
-            else if (teleporterTime <= Time.time && !onTeleporter)
-            {
-                onTeleporter = false;
-                teleporterTime = Time.time + 1;
-                teleporterCount = false;
+                teleporterTime = Time.time + 3f;
             }
         }
 
@@ -250,7 +235,7 @@ public class CharacterScript : MonoBehaviour
         //determines whether tower can or cant be place in location
         if (buildMode)
         {
-            if (Physics.Raycast(ray, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null)
+            if (Physics.Raycast(ray, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null && !rotationMode)
             {
                 if (!Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .45f, unplacedTowerMask) && !Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .55f, placedTowerMask | enemyMask))
                 {
@@ -529,7 +514,6 @@ public class CharacterScript : MonoBehaviour
         if (buttonDown && canPlace)
         {
             placedTowers[totalTowerNum] = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
-            placedTowers[totalTowerNum].layer = 12;
             totalTowerNum++;
             rotationMode = true;
         }
@@ -539,6 +523,7 @@ public class CharacterScript : MonoBehaviour
         }
         if (buttonUp)
         {
+            placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
             rotationMode = false;
         }
         isPlacing = rotationMode;
@@ -550,7 +535,6 @@ public class CharacterScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canPlace)
         {
             placedTowers[totalTowerNum] = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
-            placedTowers[totalTowerNum].layer = 12;
             totalTowerNum++;
             rotationMode = true;
         }
@@ -561,6 +545,11 @@ public class CharacterScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             rotationMode = false;
+            try
+            {
+                placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
+            }
+            catch { };
         }
         isPlacing = rotationMode;
     }

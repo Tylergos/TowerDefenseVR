@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5735871569373470646}
   - component: {fileID: 8290924553143370620}
   - component: {fileID: 3599389873406450339}
-  - component: {fileID: 7395710790349994421}
   - component: {fileID: 679267577368189938}
   m_Layer: 10
   m_Name: Tower3
@@ -94,22 +93,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!208 &7395710790349994421
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6586414041329528205}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!114 &679267577368189938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  fireball: {fileID: 6822661725097084822, guid: 34af8aaef30cb764e9cdf2640061fd1f,
+  fireball: {fileID: 5005530491157631099, guid: 34af8aaef30cb764e9cdf2640061fd1f,
     type: 3}
 --- !u!1001 &2065481245964206398
 PrefabInstance:
