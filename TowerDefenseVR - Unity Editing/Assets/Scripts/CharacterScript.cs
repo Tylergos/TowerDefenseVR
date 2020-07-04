@@ -48,7 +48,7 @@ public class CharacterScript : MonoBehaviour
     private LayerMask unplacedTowerMask;
     private LayerMask placedTowerMask;
     private LayerMask enemyMask;
-    
+
     private Renderer unplacedTowerShader;
 
     private EnemyNavigation enemy;
@@ -61,7 +61,7 @@ public class CharacterScript : MonoBehaviour
     private bool rotationMode;
 
     public GameObject[] placedTowers = new GameObject[99];
-    
+
     private float teleporterTime;
     [HideInInspector]
     public bool teleporterCount = false;
@@ -77,7 +77,7 @@ public class CharacterScript : MonoBehaviour
     [SerializeField]
     private int maxMana;
     private int mana;
-    
+
     private float invincibleTime;
 
     private bool isVR;
@@ -142,7 +142,7 @@ public class CharacterScript : MonoBehaviour
         angVelocityY = rb.angularVelocity.y;
         rb.velocity.Set(0, velocityY, 0);
         rb.angularVelocity.Set(0, angVelocityY, 0);
-        
+
         //movements
         if (!isVR)
         {
@@ -171,7 +171,7 @@ public class CharacterScript : MonoBehaviour
             SelectWeaponDesktop();
             AttackDesktop();
         }
-        
+
         //sets player position node in AI grid
         aiGrid.SetPlayerNode(transform.position);
     }
@@ -208,8 +208,8 @@ public class CharacterScript : MonoBehaviour
     {
         RaycastHit hit;
         canPlace = false;
-        
-        if (Physics.Raycast(origin, dir, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null)
+
+        if (Physics.Raycast(origin, dir, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null && !rotationMode)
         {
             if (!Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .45f, unplacedTowerMask) && !Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .55f, placedTowerMask | enemyMask))
             {
@@ -411,7 +411,7 @@ public class CharacterScript : MonoBehaviour
         {
             Destroy(curTower);
             curTowerNum++;
-            if (curTowerNum > towers.Length)
+            if (curTowerNum >= towers.Length)
             {
                 curTowerNum = 0;
             }
@@ -421,23 +421,20 @@ public class CharacterScript : MonoBehaviour
             if (curTowerNum == 0)
             {
                 unplacedTowerShader.material.color = new Color(.5f, 1, .5f);
-                unplacedCollider.enabled = false;
             }
             else if (curTowerNum == 1)
             {
                 unplacedTowerShader.material.color = new Color(1, 1, .5f);
-                unplacedCollider.enabled = false;
             }
             else if (curTowerNum == 2)
             {
                 unplacedTowerShader.material.color = new Color(.5f, .5f, 1);
-                unplacedCollider.enabled = false;
             }
             else if (curTowerNum == 3)
             {
                 unplacedTowerShader.material.color = new Color(1, .5f, .5f);
-                unplacedCollider.enabled = false;
             }
+            unplacedCollider.enabled = false;
         }
     }
 
@@ -474,8 +471,6 @@ public class CharacterScript : MonoBehaviour
             curTower = Instantiate(towers[curTowerNum], this.transform);
             unplacedTowerShader = curTower.GetComponent<Renderer>();
             unplacedTowerShader.material.color = new Color(.5f, 1, .5f);
-            unplacedCollider = curTower.GetComponent<Collider>();
-            unplacedCollider.enabled = false;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && !(curTowerNum == 1))
         {
@@ -484,8 +479,6 @@ public class CharacterScript : MonoBehaviour
             curTower = Instantiate(towers[curTowerNum], this.transform);
             unplacedTowerShader = curTower.GetComponent<Renderer>();
             unplacedTowerShader.material.color = new Color(1, 1, .5f);
-            unplacedCollider = curTower.GetComponent<Collider>();
-            unplacedCollider.enabled = false;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && !(curTowerNum == 2))
         {
@@ -494,8 +487,6 @@ public class CharacterScript : MonoBehaviour
             curTower = Instantiate(towers[curTowerNum], this.transform);
             unplacedTowerShader = curTower.GetComponent<Renderer>();
             unplacedTowerShader.material.color = new Color(.5f, .5f, 1);
-            unplacedCollider = curTower.GetComponent<Collider>();
-            unplacedCollider.enabled = false;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4) && !(curTowerNum == 3))
         {
@@ -504,9 +495,9 @@ public class CharacterScript : MonoBehaviour
             curTower = Instantiate(towers[curTowerNum], this.transform);
             unplacedTowerShader = curTower.GetComponent<Renderer>();
             unplacedTowerShader.material.color = new Color(1, .5f, .5f);
-            unplacedCollider = curTower.GetComponent<Collider>();
-            unplacedCollider.enabled = false;
         }
+        unplacedCollider = curTower.GetComponent<Collider>();
+        unplacedCollider.enabled = false;
     }
 
     public void SpawnTowerVR(bool buttonDown, bool buttonCurDown, bool buttonUp, float rotation)
@@ -519,12 +510,20 @@ public class CharacterScript : MonoBehaviour
         }
         if (buttonCurDown && rotationMode)
         {
-            placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * rotation, 0);
+            try
+            {
+                placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * rotation, 0);
+            }
+            catch { };
         }
         if (buttonUp)
         {
-            placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
-            rotationMode = false;
+            try
+            {
+                placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
+                rotationMode = false;
+            }
+            catch { };
         }
         isPlacing = rotationMode;
     }
@@ -540,13 +539,17 @@ public class CharacterScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && rotationMode)
         {
-            placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * Input.GetAxis("Mouse X"), 0);
+            try
+            {
+                placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * Input.GetAxis("Mouse X"), 0);
+            }
+            catch { };
         }
         if (Input.GetMouseButtonUp(0))
         {
-            rotationMode = false;
             try
             {
+                rotationMode = false;
                 placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
             }
             catch { };

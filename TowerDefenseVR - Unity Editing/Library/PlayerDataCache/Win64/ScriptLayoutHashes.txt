@@ -9,10 +9,11 @@ bf5cb87c773ea378a3f5ac036aab367b Assembly-CSharp.dll:.SocialPlatformManager
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 329a4358a2c40fe3c40f44951200bd91 Assembly-CSharp.dll:.OvrAvatarBody
 99d999018d3c1c5fb2bea275f7609d4d Oculus.VR.dll:.OVRMixedRealityCaptureSettings
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DeathBarrier
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonDownListener
 0c2ecdae097ba779e0a9e100ed96bb10 Oculus.VR.dll:.OVRCameraRig
-24977cde0f1bdfb36a0c62ba07dd2c0b Assembly-CSharp.dll:.EnemyNavigation
+76df01fd4b18b94ae9f502ebe1a82f7b Assembly-CSharp.dll:.EnemyNavigation
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 780e8f682b3221346c034a6712a0fd25 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -211,7 +212,7 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 1eb9aed3cd6453fbc580cf51127908af Assembly-CSharp.dll:Oculus.Platform.CallbackRunner
 7136ccb8970d7b5b2feefcae2f0d201d Assembly-CSharp.dll:.MoviePlayerSampleControls
 9edf0788742c31d8eaaf32cf4feac747 Oculus.VR.dll:.OVRResetOrientation
-65d2c9e4e1b96e8defc7b13d628098fc Assembly-CSharp.dll:.CharacterScript
+84f1624fdfae3f54e986638b501a6391 Assembly-CSharp.dll:.CharacterScript
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.InputManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Oculus.Platform.Samples.VrHoops.P2PNetworkBall
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor

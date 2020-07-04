@@ -5,10 +5,11 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     LayerMask unwalkable;
+    LayerMask placedTower;
     public Vector3 gridWorldSize;
-    [Range(0.0f, 10.0f)]
+    [Range(0.1f, 10.0f)]
     public float nodeSizexz;
-    [Range(0.0f, 10.0f)]
+    [Range(0.1f, 10.0f)]
     public float nodeSizey;
     private Node[,,] grid;
 
@@ -19,9 +20,8 @@ public class Grid : MonoBehaviour
     private Node playerNode;
     private Node spawnNode;
     private Node endNode;
-    
-    private Dictionary<GameObject, Node> towerToNode;
-    private Dictionary<Node, GameObject> nodeToTower;
+
+    private Dictionary<int, Node> towerIDToNode;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class Grid : MonoBehaviour
         topLeftBack = new Vector3(transform.position.x - (gridWorldSize.x / 2), transform.position.y + (gridWorldSize.y / 2), transform.position.z - (gridWorldSize.z / 2));
         topRightFront = new Vector3(transform.position.x + (gridWorldSize.x / 2), transform.position.y + (gridWorldSize.y / 2), transform.position.z + (gridWorldSize.z / 2));
         topRightBack = new Vector3(transform.position.x + (gridWorldSize.x / 2), transform.position.y + (gridWorldSize.y / 2), transform.position.z - (gridWorldSize.z / 2));
-        
+
         //calculate grid size from world size
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeSizexz);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeSizey);
@@ -44,13 +44,13 @@ public class Grid : MonoBehaviour
         //calculate half node sizes
         nodeHalfxz = nodeSizexz / 2;
         nodeHalfy = nodeSizey / 2;
-        
+
         //create unwalkable layermask
         unwalkable = LayerMask.GetMask("Unwalkable");
+        placedTower = LayerMask.GetMask("PlacedTower");
 
         CreateGrid();
-        towerToNode = new Dictionary<GameObject, Node>();
-        nodeToTower = new Dictionary<Node, GameObject>();
+        towerIDToNode = new Dictionary<int, Node>();
     }
 
     private void CreateGrid()
@@ -63,7 +63,7 @@ public class Grid : MonoBehaviour
             {
                 for (int z = 0; z < gridSizeZ; z++)
                 {
-                    grid[x, y, z] = new Node(GridToWorld(x,y,z), IsWalkablePosition(GridToWorld(x,y,z)));
+                    grid[x, y, z] = new Node(GridToWorld(x, y, z), IsWalkablePosition(GridToWorld(x, y, z)), new Vector3Int(x, y, z));
                 }
             }
         }
@@ -109,7 +109,7 @@ public class Grid : MonoBehaviour
     private bool IsWalkablePosition(Vector3 pos)
     {
         //checks area for unwalkable layer to determine if node is walkable
-        return !Physics.CheckBox(pos, 
+        return !Physics.CheckBox(pos,
             new Vector3(nodeHalfxz, nodeHalfy, nodeHalfxz), Quaternion.identity, unwalkable);
     }
 
@@ -130,25 +130,56 @@ public class Grid : MonoBehaviour
         spawnNode = WorldToNode(pos);
     }
 
-    public void AddTowerNode(GameObject tower)
+    public void AddTowerNode(GameObject tower, int radius = 2)
     {
-        //adds tower to dictionary
-        towerToNode.Add(tower, WorldToNode(tower.transform.position));
-        nodeToTower.Add(towerToNode[tower], tower);
+        towerIDToNode.Add(tower.GetInstanceID(), WorldToNode(tower.transform.position));
+        Vector3Int baseGrid = towerIDToNode[tower.GetInstanceID()].gridPosition;
+
+        for (int x = 1-radius; x < radius; x++)
+        {
+            for (int z = 1-radius; z < radius; z++)
+            {
+                try
+                {
+                    if (Physics.CheckBox(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].worldPosition,
+                        new Vector3(nodeHalfxz - .1f, nodeHalfy - .1f, nodeHalfxz - .1f), Quaternion.identity, placedTower))
+                    {
+                        grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].tower = true;
+                    }
+                } catch { };
+            }
+        }
     }
 
-    public void RemoveTowerNode(GameObject tower)
+    public void RemoveTowerNode(GameObject tower, int radius = 2)
     {
+        Vector3Int baseGrid = towerIDToNode[tower.GetInstanceID()].gridPosition;
+
+        for (int x = 1 - radius; x < radius; x++)
+        {
+            for (int z = 1 - radius; z < radius; z++)
+            {
+                try
+                {
+                    if (!Physics.CheckBox(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].worldPosition,
+                        new Vector3(nodeHalfxz - .1f, nodeHalfy - .1f, nodeHalfxz - .1f), Quaternion.identity, placedTower))
+                    {
+                        grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].tower = false;
+                    }
+                }
+                catch { };
+            }
+        }
+
         //removes tower from dictionary
-        nodeToTower.Remove(towerToNode[tower]);
-        towerToNode.Remove(tower);
+        towerIDToNode.Remove(tower.GetInstanceID());
     }
 
     private void OnDrawGizmos()
     {
         //draw main grid gizmo
         Gizmos.DrawWireCube(transform.position, gridWorldSize);
-        
+
         //draw the individual nodes in the grid
         if (grid != null)
         {
@@ -158,7 +189,7 @@ public class Grid : MonoBehaviour
                 {
                     Gizmos.color = Color.green;
                 }
-                else if (nodeToTower.ContainsKey(node))
+                else if (node.tower)
                 {
                     Gizmos.color = Color.black;
                 }

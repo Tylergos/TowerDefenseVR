@@ -13,6 +13,517 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 6
-  lastUpdatedAtString: 2020-06-24T23:13:48.332-03:00
-  initializedAtString: 2020-06-24T13:28:34.979-03:00
-  entries: []
+  lastUpdatedAtString: 2020-07-03T14:30:40.178-03:00
+  initializedAtString: 2020-07-03T14:04:26.345-03:00
+  entries:
+  - path: TowerDefenseVR - Unity Editing\Assets\Scenes\SampleScene.unity
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Assets\Scenes\SampleScene.unity
+    projectPath: Assets\Scenes\SampleScene.unity
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Assets\Scripts\CharacterScript.cs
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Assets\Scripts\CharacterScript.cs
+    projectPath: Assets\Scripts\CharacterScript.cs
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Assets\Scripts\Grid.cs
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Assets\Scripts\Grid.cs
+    projectPath: Assets\Scripts\Grid.cs
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Assets\Scripts\InputManager.cs
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Assets\Scripts\InputManager.cs
+    projectPath: Assets\Scripts\InputManager.cs
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Assets\Scripts\Node.cs
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Assets\Scripts\Node.cs
+    projectPath: Assets\Scripts\Node.cs
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\assetDatabase3
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\assetDatabase3
+    projectPath: Library\assetDatabase3
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\CurrentLayout.dwlt
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\CurrentLayout.dwlt
+    projectPath: Library\CurrentLayout.dwlt
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\EditorInstance.json
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\EditorInstance.json
+    projectPath: Library\EditorInstance.json
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Library\EditorUserBuildSettings.asset
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\EditorUserBuildSettings.asset
+    projectPath: Library\EditorUserBuildSettings.asset
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\gfu\cache\gitlocks.yaml
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\gfu\cache\gitlocks.yaml
+    projectPath: Library\gfu\cache\gitlocks.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\gfu\cache\gitstatusentries.yaml
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\gfu\cache\gitstatusentries.yaml
+    projectPath: Library\gfu\cache\gitstatusentries.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\gfu\cache\gittrackingstatus.yaml
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\gfu\cache\gittrackingstatus.yaml
+    projectPath: Library\gfu\cache\gittrackingstatus.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\gfu\cache\repoinfo.yaml
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\gfu\cache\repoinfo.yaml
+    projectPath: Library\gfu\cache\repoinfo.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\LastBuild.buildreport
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\LastBuild.buildreport
+    projectPath: Library\LastBuild.buildreport
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\metadata\00\00a9916a61936f844abfcc60fec9312f
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\metadata\00\00a9916a61936f844abfcc60fec9312f
+    projectPath: Library\metadata\00\00a9916a61936f844abfcc60fec9312f
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\metadata\1b\1b6dc2e79816c7247959fdf973acaf55
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\metadata\1b\1b6dc2e79816c7247959fdf973acaf55
+    projectPath: Library\metadata\1b\1b6dc2e79816c7247959fdf973acaf55
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\metadata\6b\6be03f3743db3ec4483ae4f0173d2b9d
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\metadata\6b\6be03f3743db3ec4483ae4f0173d2b9d
+    projectPath: Library\metadata\6b\6be03f3743db3ec4483ae4f0173d2b9d
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\metadata\ee\ee4feb37451d2a04f9555b0cdd9f816b
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\metadata\ee\ee4feb37451d2a04f9555b0cdd9f816b
+    projectPath: Library\metadata\ee\ee4feb37451d2a04f9555b0cdd9f816b
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\boot.config
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\boot.config
+    projectPath: Library\PlayerDataCache\Win64\Data\boot.config
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\globalgamemanagers
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\globalgamemanagers
+    projectPath: Library\PlayerDataCache\Win64\Data\globalgamemanagers
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\globalgamemanagers.assets
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\globalgamemanagers.assets
+    projectPath: Library\PlayerDataCache\Win64\Data\globalgamemanagers.assets
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\level0
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\level0
+    projectPath: Library\PlayerDataCache\Win64\Data\level0
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\level0.resS
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\level0.resS
+    projectPath: Library\PlayerDataCache\Win64\Data\level0.resS
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Assembly-CSharp.dll
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Assembly-CSharp.dll
+    projectPath: Library\PlayerDataCache\Win64\Data\Managed\Assembly-CSharp.dll
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Oculus.VR.dll
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Oculus.VR.dll
+    projectPath: Library\PlayerDataCache\Win64\Data\Managed\Oculus.VR.dll
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Unity.Analytics.DataPrivacy.dll
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Unity.Analytics.DataPrivacy.dll
+    projectPath: Library\PlayerDataCache\Win64\Data\Managed\Unity.Analytics.DataPrivacy.dll
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Unity.TextMeshPro.dll
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\Managed\Unity.TextMeshPro.dll
+    projectPath: Library\PlayerDataCache\Win64\Data\Managed\Unity.TextMeshPro.dll
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\resources.assets
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\resources.assets
+    projectPath: Library\PlayerDataCache\Win64\Data\resources.assets
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\Data\sharedassets0.assets
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\Data\sharedassets0.assets
+    projectPath: Library\PlayerDataCache\Win64\Data\sharedassets0.assets
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\PlayerDataCache\Win64\ScriptLayoutHashes.txt
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\PlayerDataCache\Win64\ScriptLayoutHashes.txt
+    projectPath: Library\PlayerDataCache\Win64\ScriptLayoutHashes.txt
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\ScriptAssemblies\Assembly-CSharp.dll
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\ScriptAssemblies\Assembly-CSharp.dll
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe0.log
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe0.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe1.log
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe1.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe1.log
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe2.log
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe2.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe2.log
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe3.log
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\shadercompiler-UnityShaderCompiler.exe3.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe3.log
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\StateCache\Hierarchy\332deb-0aef81e8aee9c8144b.json
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\StateCache\Hierarchy\332deb-0aef81e8aee9c8144b.json
+    projectPath: Library\StateCache\Hierarchy\332deb-0aef81e8aee9c8144b.json
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\StateCache\Hierarchy\332deb-mainStage.json
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\StateCache\Hierarchy\332deb-mainStage.json
+    projectPath: Library\StateCache\Hierarchy\332deb-mainStage.json
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Library\StateCache\SceneView\94a597-mainStage.json
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Library\StateCache\SceneView\94a597-mainStage.json
+    projectPath: Library\StateCache\SceneView\94a597-mainStage.json
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: TowerDefenseVR - Unity Editing\Temp\__Backupscenes\0.backup
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\__Backupscenes\0.backup
+    projectPath: Temp\__Backupscenes\0.backup
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\ProcessJobs\f1926edb5288fe7f8449eef97a7b5610.bakert
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\ProcessJobs\f1926edb5288fe7f8449eef97a7b5610.bakert
+    projectPath: Temp\ProcessJobs\f1926edb5288fe7f8449eef97a7b5610.bakert
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\tempFile.res
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\tempFile.res
+    projectPath: Temp\tempFile.res
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\tempFile.resG
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\tempFile.resG
+    projectPath: Temp\tempFile.resG
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityLockfile
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityLockfile
+    projectPath: Temp\UnityLockfile
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-0413f7609b798e540bd5d944c34a9ec4
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-0413f7609b798e540bd5d944c34a9ec4
+    projectPath: Temp\UnityTempFile-0413f7609b798e540bd5d944c34a9ec4
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-05aaeb100b3d95f4fbe8bdeaa27d1202
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-05aaeb100b3d95f4fbe8bdeaa27d1202
+    projectPath: Temp\UnityTempFile-05aaeb100b3d95f4fbe8bdeaa27d1202
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-085ca9c39f7d4904daae9a7b811b4f5f
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-085ca9c39f7d4904daae9a7b811b4f5f
+    projectPath: Temp\UnityTempFile-085ca9c39f7d4904daae9a7b811b4f5f
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-0c3a2ccad475aeb46829abc590847ea9
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-0c3a2ccad475aeb46829abc590847ea9
+    projectPath: Temp\UnityTempFile-0c3a2ccad475aeb46829abc590847ea9
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-0cbd0314c10ad2f4f8afac2cd76281b9
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-0cbd0314c10ad2f4f8afac2cd76281b9
+    projectPath: Temp\UnityTempFile-0cbd0314c10ad2f4f8afac2cd76281b9
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-130f03e4c58fda3448732ce288c1479d
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-130f03e4c58fda3448732ce288c1479d
+    projectPath: Temp\UnityTempFile-130f03e4c58fda3448732ce288c1479d
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-32fc49f9eaf87de4a843fe74cef977b6
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-32fc49f9eaf87de4a843fe74cef977b6
+    projectPath: Temp\UnityTempFile-32fc49f9eaf87de4a843fe74cef977b6
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-339790238ec088742bc86c760d72b901
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-339790238ec088742bc86c760d72b901
+    projectPath: Temp\UnityTempFile-339790238ec088742bc86c760d72b901
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-37403c94ed932d548be31291b96f2260
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-37403c94ed932d548be31291b96f2260
+    projectPath: Temp\UnityTempFile-37403c94ed932d548be31291b96f2260
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-3b4dbb25587cfc645ad45f93da8a7b2b
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-3b4dbb25587cfc645ad45f93da8a7b2b
+    projectPath: Temp\UnityTempFile-3b4dbb25587cfc645ad45f93da8a7b2b
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-3c9ed5f7aa3893b46bfa458c9cfe9e9a
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-3c9ed5f7aa3893b46bfa458c9cfe9e9a
+    projectPath: Temp\UnityTempFile-3c9ed5f7aa3893b46bfa458c9cfe9e9a
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-3f63ed3d2da83a64b90c7ec5755678ce
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-3f63ed3d2da83a64b90c7ec5755678ce
+    projectPath: Temp\UnityTempFile-3f63ed3d2da83a64b90c7ec5755678ce
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-49a14e988f4f42440ba30b69357f025a
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-49a14e988f4f42440ba30b69357f025a
+    projectPath: Temp\UnityTempFile-49a14e988f4f42440ba30b69357f025a
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-4a3c50223fbfd7c46b5483f1402bffa0
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-4a3c50223fbfd7c46b5483f1402bffa0
+    projectPath: Temp\UnityTempFile-4a3c50223fbfd7c46b5483f1402bffa0
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-582fa7755b231be4c907942a95cd5f80
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-582fa7755b231be4c907942a95cd5f80
+    projectPath: Temp\UnityTempFile-582fa7755b231be4c907942a95cd5f80
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-71196bff3304da442afd10fdb7c504d1
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-71196bff3304da442afd10fdb7c504d1
+    projectPath: Temp\UnityTempFile-71196bff3304da442afd10fdb7c504d1
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-7bbac85d0ec53024b86740909e8f1aca
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-7bbac85d0ec53024b86740909e8f1aca
+    projectPath: Temp\UnityTempFile-7bbac85d0ec53024b86740909e8f1aca
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-8361598c5ab68e34a83525136dc96b8e
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-8361598c5ab68e34a83525136dc96b8e
+    projectPath: Temp\UnityTempFile-8361598c5ab68e34a83525136dc96b8e
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-852b22c5782b603429b9fd5de3a0fe44
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-852b22c5782b603429b9fd5de3a0fe44
+    projectPath: Temp\UnityTempFile-852b22c5782b603429b9fd5de3a0fe44
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-89cc0e9eabfc4ad4aba025503ed771c3
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-89cc0e9eabfc4ad4aba025503ed771c3
+    projectPath: Temp\UnityTempFile-89cc0e9eabfc4ad4aba025503ed771c3
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-96f7ce3a3790fcb4d926b28ef2f6d8cc
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-96f7ce3a3790fcb4d926b28ef2f6d8cc
+    projectPath: Temp\UnityTempFile-96f7ce3a3790fcb4d926b28ef2f6d8cc
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-9adf19d5bc2d6ac41b71679e5afb47d7
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-9adf19d5bc2d6ac41b71679e5afb47d7
+    projectPath: Temp\UnityTempFile-9adf19d5bc2d6ac41b71679e5afb47d7
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-b1676a5c4e414704f9d8c72ca7820c60
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-b1676a5c4e414704f9d8c72ca7820c60
+    projectPath: Temp\UnityTempFile-b1676a5c4e414704f9d8c72ca7820c60
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-b236538ff83e7b54d840864b3312bb3e
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-b236538ff83e7b54d840864b3312bb3e
+    projectPath: Temp\UnityTempFile-b236538ff83e7b54d840864b3312bb3e
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-b80193b90016cf941bd786b6668e731e
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-b80193b90016cf941bd786b6668e731e
+    projectPath: Temp\UnityTempFile-b80193b90016cf941bd786b6668e731e
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-bb139c0eea990e946b1a68bd9e89a7cc
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-bb139c0eea990e946b1a68bd9e89a7cc
+    projectPath: Temp\UnityTempFile-bb139c0eea990e946b1a68bd9e89a7cc
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-c5588ff55562e95419efea1fcf039197
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-c5588ff55562e95419efea1fcf039197
+    projectPath: Temp\UnityTempFile-c5588ff55562e95419efea1fcf039197
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-d87565f1c5029a245803d4145b3e283a
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-d87565f1c5029a245803d4145b3e283a
+    projectPath: Temp\UnityTempFile-d87565f1c5029a245803d4145b3e283a
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-e655106b7d6063e44a4ad18e60146788
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-e655106b7d6063e44a4ad18e60146788
+    projectPath: Temp\UnityTempFile-e655106b7d6063e44a4ad18e60146788
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: TowerDefenseVR - Unity Editing\Temp\UnityTempFile-fcde3793911d76e4aadc27acad124945
+    fullPath: C:\Users\melissa\Downloads\New folder\TowerDefenseVR - Copy\TowerDefenseVR
+      - Unity Editing\Temp\UnityTempFile-fcde3793911d76e4aadc27acad124945
+    projectPath: Temp\UnityTempFile-fcde3793911d76e4aadc27acad124945
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1

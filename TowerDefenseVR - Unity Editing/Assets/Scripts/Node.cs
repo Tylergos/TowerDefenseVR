@@ -6,7 +6,9 @@ public class Node
 {
     public Vector3 worldPosition;
     public bool walkable;
+    public bool tower;
     public Node[] neighbours;
+    public Vector3Int gridPosition;
 
     public Node()
     {
@@ -14,9 +16,10 @@ public class Node
         walkable = true;
     }
 
-    public Node(Vector3 pos, bool walk)
+    public Node(Vector3 pos, bool walk, Vector3Int gridPos)
     {
         worldPosition = pos;
         walkable = walk;
+        gridPosition = gridPos;
     }
 }
