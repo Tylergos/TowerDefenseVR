@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
 {
     public int health;
     LayerMask groundWallsEnemies;
-    private GameObject[] visibleEnemies;
+    private List<GameObject> visibleEnemies;
     private Ray ray;
     private float closest;
     private int highestPoint;
@@ -89,16 +89,17 @@ public class Tower : MonoBehaviour
     private void Sight()
     {
         //checks if tower is placed
-        if (placed)
+        if (placed && (Time.time >= nextShot || target == null))
         {
             target = null;
             visibleEnemies = viewCollider.GetEnemiesInView();
             closest = float.PositiveInfinity;
             highestPoint = -1;
-            for (int i = 0; i < viewCollider.GetEnemiesInView().Length; i++)
+            for (int i = 0; i < viewCollider.GetEnemiesInView().Count; i++)
             {
                 if (visibleEnemies[i] != null)
                 {
+                    //checks that enemy is visible
                     ray = new Ray(this.transform.position, visibleEnemies[i].transform.position - this.transform.position);
                     Physics.Raycast(ray, out hit, float.MaxValue, groundWallsEnemies);
                     if (hit.transform.tag == "Agent")

@@ -60,7 +60,8 @@ public class CharacterScript : MonoBehaviour
 
     private bool rotationMode;
 
-    public GameObject[] placedTowers = new GameObject[99];
+    public Dictionary<int, GameObject> placedTowers = new Dictionary<int, GameObject>();
+    GameObject LastTower;
 
     private float teleporterTime;
     [HideInInspector]
@@ -164,7 +165,7 @@ public class CharacterScript : MonoBehaviour
         {
             SelectTowerDesktop();
             CurSight();
-            SpawnTowerDesktop();
+            SpawnTower(Input.GetMouseButtonDown(0), Input.GetMouseButton(0), Input.GetMouseButtonUp(0), Input.GetAxis("Mouse X"));
         }
         else if (!buildMode && !isVR)
         {
@@ -500,11 +501,14 @@ public class CharacterScript : MonoBehaviour
         unplacedCollider.enabled = false;
     }
 
-    public void SpawnTowerVR(bool buttonDown, bool buttonCurDown, bool buttonUp, float rotation)
+    //Spawns selected tower
+    public void SpawnTower(bool buttonDown, bool buttonCurDown, bool buttonUp, float rotation)
     {
+
         if (buttonDown && canPlace)
         {
-            placedTowers[totalTowerNum] = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
+            LastTower = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
+            placedTowers.Add(LastTower.GetInstanceID(), LastTower);
             totalTowerNum++;
             rotationMode = true;
         }
@@ -512,7 +516,7 @@ public class CharacterScript : MonoBehaviour
         {
             try
             {
-                placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * rotation, 0);
+                LastTower.transform.Rotate(0, horizontalSpeed * rotation, 0);
             }
             catch { };
         }
@@ -520,37 +524,8 @@ public class CharacterScript : MonoBehaviour
         {
             try
             {
-                placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
+                LastTower.GetComponent<Tower>().TowerPlaced();
                 rotationMode = false;
-            }
-            catch { };
-        }
-        isPlacing = rotationMode;
-    }
-
-    //spawn selected tower
-    private void SpawnTowerDesktop()
-    {
-        if (Input.GetMouseButtonDown(0) && canPlace)
-        {
-            placedTowers[totalTowerNum] = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
-            totalTowerNum++;
-            rotationMode = true;
-        }
-        if (Input.GetMouseButton(0) && rotationMode)
-        {
-            try
-            {
-                placedTowers[totalTowerNum - 1].transform.Rotate(0, horizontalSpeed * Input.GetAxis("Mouse X"), 0);
-            }
-            catch { };
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            try
-            {
-                rotationMode = false;
-                placedTowers[totalTowerNum - 1].GetComponent<Tower>().TowerPlaced();
             }
             catch { };
         }

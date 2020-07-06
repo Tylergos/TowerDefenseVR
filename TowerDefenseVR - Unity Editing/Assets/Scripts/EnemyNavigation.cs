@@ -143,6 +143,10 @@ public class EnemyNavigation : MonoBehaviour
     {
         //When the end is reached update Bag and destroy this object
         Bag.bag.SetEnemiesRemaining(Bag.bag.GetEnemiesRemaining() - 1);
+
+        //crappy way to trigger OnTriggerExit for towers
+        transform.position = new Vector3(0, -1000, 0);
+
         Destroy(this.gameObject);
     }
 
@@ -168,6 +172,10 @@ public class EnemyNavigation : MonoBehaviour
             //Update Bag and player xp, and destroy this object after death
             Bag.bag.SetEnemiesRemaining(Bag.bag.GetEnemiesRemaining() - 1);
             player.GetComponent<CharacterScript>().IncreaseXP(1);
+
+            //crappy way to trigger OnTriggerExit for towers
+            transform.position = new Vector3(0, -1000, 0);
+
             Destroy(this.gameObject);
         }
 

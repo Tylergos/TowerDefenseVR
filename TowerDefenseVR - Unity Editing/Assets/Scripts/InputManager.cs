@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
         {
             playerScript.SelectTowerVR(OVRInput.GetDown(OVRInput.Button.Two));
             playerScript.CurSightTowerVR(cameraRig.rightControllerAnchor.position, cameraRig.rightControllerAnchor.transform.forward);
-            playerScript.SpawnTowerVR(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger), OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger), OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger), OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x);
+            playerScript.SpawnTower(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger), OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger), OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger), OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x);
         }
         else
         {

@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class TowerCollider : MonoBehaviour
 {
-
-    private GameObject[] enemies = new GameObject[99];
-    private int numEnemies;
+    private List<GameObject> enemies;
 
     private void Start()
     {
-        numEnemies = 0;
+        enemies = new List<GameObject>();
     }
 
-    public int GetNumEnemies()
-    {
-        return numEnemies;
-    }
-
-    public GameObject[] GetEnemiesInView()
+    public List<GameObject> GetEnemiesInView()
     {
         return enemies;
     }
@@ -27,31 +20,23 @@ public class TowerCollider : MonoBehaviour
     {
         if (other.tag == "Agent")
         {
-            for (int i = 0; i < enemies.Length; i++)
+            try
             {
-                if (enemies[i] == null)
-                {
-                    enemies[i] = other.gameObject;
-                    numEnemies++;
-                    break;
-                }
+                enemies.Add(other.gameObject);
             }
+            catch {
+                //triggered when enemy in tower collider and player
+                //looks at enemy while attempting to spawn tower
+                //Debug.Log("False on trigger enter caused by: " + other);
+            };
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Agent")
+        if (other.tag == "Agent" && enemies.Contains(other.gameObject))
         {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                if (enemies[i] == other.gameObject)
-                {
-                    enemies[i] = null;
-                    numEnemies--;
-                    break;
-                }
-            }
+            enemies.Remove(other.gameObject);
         }
     }
 }

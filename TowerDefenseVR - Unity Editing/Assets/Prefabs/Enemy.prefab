@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1600610450363414515}
   - component: {fileID: 7288817767467340906}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stun: 0
-  stuncount: 0
-  invincibleFrames: 0
+  stunTime: 0
+  invincibleTime: 0
   health: 2
   speed: 1
   rotationSpeed: 2
@@ -222,11 +222,9 @@ MonoBehaviour:
   experience: 1
   attackMode: 0
   attackObject: {fileID: 0}
-  tCountdown: 60
+  teleporterTime: 0
   teleporterCount: 0
-  onTeleporter: 0
   teleporter: {fileID: 0}
-  waitForExit: 0
   grounded: 0
 --- !u!54 &4461623758546940534
 Rigidbody:
@@ -257,7 +255,7 @@ GameObject:
   - component: {fileID: 2922770708137693939}
   - component: {fileID: 3277488236704037211}
   m_Layer: 13
-  m_Name: Sphere
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
