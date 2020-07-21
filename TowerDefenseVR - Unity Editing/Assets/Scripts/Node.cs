@@ -7,6 +7,7 @@ public class Node
     public Vector3 worldPosition;
     public bool walkable;
     public bool tower;
+    public bool teleporter;
     public Node[] neighbours;
     public Vector3Int gridPosition;
 

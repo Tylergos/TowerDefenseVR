@@ -6,6 +6,7 @@ public class Grid : MonoBehaviour
 {
     LayerMask unwalkable;
     LayerMask placedTower;
+    LayerMask teleporterMask;
     public Vector3 gridWorldSize;
     [Range(0.1f, 10.0f)]
     public float nodeSizexz;
@@ -22,6 +23,9 @@ public class Grid : MonoBehaviour
     private Node endNode;
 
     private Dictionary<int, Node> towerIDToNode;
+
+    private Dictionary<Node, Teleporter> nodeToTeleporter;
+    List<GameObject> teleporters = new List<GameObject>();
 
     private void Awake()
     {
@@ -48,9 +52,11 @@ public class Grid : MonoBehaviour
         //create unwalkable layermask
         unwalkable = LayerMask.GetMask("Unwalkable");
         placedTower = LayerMask.GetMask("PlacedTower");
+        teleporterMask = LayerMask.GetMask("Teleporter");
 
         CreateGrid();
         towerIDToNode = new Dictionary<int, Node>();
+        nodeToTeleporter = new Dictionary<Node, Teleporter>();
     }
 
     private void CreateGrid()
@@ -130,6 +136,35 @@ public class Grid : MonoBehaviour
         spawnNode = WorldToNode(pos);
     }
 
+    public void AddTeleporterNodes(GameObject teleporter, int radius = 2)
+    {
+        teleporters.Add(teleporter);
+        Vector3Int baseGrid = WorldToNode(teleporter.transform.position).gridPosition;
+        for (int x = 1 - radius; x < radius; x++)
+        {
+            for (int z = 1 - radius; z < radius; z++)
+            {
+                try
+                {
+                    if (Physics.CheckBox(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].worldPosition,
+                        new Vector3(nodeHalfxz - .1f, nodeHalfy - .1f, nodeHalfxz - .1f), Quaternion.identity, teleporterMask, QueryTriggerInteraction.Collide))
+                    {
+                        grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].teleporter = true;
+                        try
+                        {
+                            nodeToTeleporter.Add(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z], teleporter.GetComponent<Teleporter>());
+                        }
+                        catch
+                        {
+                            Debug.Log("Node already contains teleporter");
+                        };
+                    }
+                }
+                catch {};
+            }
+        }
+    }
+
     public void AddTowerNode(GameObject tower, int radius = 2)
     {
         towerIDToNode.Add(tower.GetInstanceID(), WorldToNode(tower.transform.position));
@@ -188,6 +223,10 @@ public class Grid : MonoBehaviour
                 if (node == playerNode)
                 {
                     Gizmos.color = Color.green;
+                }
+                else if (node.teleporter)
+                {
+                    Gizmos.color = Color.yellow;
                 }
                 else if (node.tower)
                 {

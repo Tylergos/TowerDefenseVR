@@ -6,9 +6,19 @@ public class Teleporter : MonoBehaviour
 {
     [SerializeField]
     private GameObject nextTeleporter;
+    [SerializeField]
+    private int linkNum;
+
+    [SerializeField]
+    private int gridRadius;
 
     private CharacterScript c;
     private EnemyNavigation e;
+
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().AddTeleporterNodes(this.gameObject, gridRadius);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +38,16 @@ public class Teleporter : MonoBehaviour
             e.teleporter = this;
             e.teleporterCount = true;
         }
+    }
+
+    public GameObject GetNextTeleporter()
+    {
+        return nextTeleporter;
+    }
+
+    public int GetLinkNum()
+    {
+        return linkNum;
     }
 
     public void Teleport(GameObject g)
