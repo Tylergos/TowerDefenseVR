@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 387981473}
   - component: {fileID: 387981472}
+  - component: {fileID: 387981474}
   m_Layer: 0
   m_Name: A* Grid
   m_TagString: AIGrid
@@ -788,6 +789,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387981474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387981471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0af6def821866340bfccf559c7d6d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeker: {fileID: 395708866}
+  target: {fileID: 1837354804}
+--- !u!4 &395708866 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3686489459753298828, guid: b8ec4f68d47b4b14b928e33ee6bf70ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1525373324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &405528643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4407,7 @@ PrefabInstance:
     - target: {fileID: 1240233931639587617, guid: 13573c5d05e2a774eb55abc50c32eeff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26158476
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1240233931639587617, guid: 13573c5d05e2a774eb55abc50c32eeff,
         type: 3}

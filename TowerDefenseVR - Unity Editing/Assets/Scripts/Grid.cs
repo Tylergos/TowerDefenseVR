@@ -27,6 +27,8 @@ public class Grid : MonoBehaviour
     private Dictionary<Node, Teleporter> nodeToTeleporter;
     List<GameObject> teleporters = new List<GameObject>();
 
+    public List<Node> path;
+
     private void Awake()
     {
         //+z is forward, +x is right, +y is top
@@ -55,6 +57,10 @@ public class Grid : MonoBehaviour
         teleporterMask = LayerMask.GetMask("Teleporter");
 
         CreateGrid();
+        foreach (Node node in grid)
+        {
+            CreateNeighbours(node);
+        }
         towerIDToNode = new Dictionary<int, Node>();
         nodeToTeleporter = new Dictionary<Node, Teleporter>();
     }
@@ -70,6 +76,22 @@ public class Grid : MonoBehaviour
                 for (int z = 0; z < gridSizeZ; z++)
                 {
                     grid[x, y, z] = new Node(GridToWorld(x, y, z), IsWalkablePosition(GridToWorld(x, y, z)), new Vector3Int(x, y, z));
+                }
+            }
+        }
+    }
+
+    public void CreateNeighbours(Node node)
+    {
+        for (int x = node.gridPosition.x - 1; x <= node.gridPosition.x + 1; x++)
+        {
+            for (int z = node.gridPosition.z - 1; z <= node.gridPosition.z + 1; z++)
+            {
+                if (x < 0 || x >= gridSizeX || z < 0 || z >= gridSizeZ)
+                    continue;
+                if (grid[x, node.gridPosition.y, z] != node)
+                {
+                    node.neighbours.Add(grid[x, node.gridPosition.y, z]);
                 }
             }
         }
@@ -156,11 +178,11 @@ public class Grid : MonoBehaviour
                         }
                         catch
                         {
-                            Debug.Log("Node already contains teleporter");
+                            //Debug.Log("Node already contains teleporter");
                         };
                     }
                 }
-                catch {};
+                catch { };
             }
         }
     }
@@ -170,9 +192,9 @@ public class Grid : MonoBehaviour
         towerIDToNode.Add(tower.GetInstanceID(), WorldToNode(tower.transform.position));
         Vector3Int baseGrid = towerIDToNode[tower.GetInstanceID()].gridPosition;
 
-        for (int x = 1-radius; x < radius; x++)
+        for (int x = 1 - radius; x < radius; x++)
         {
-            for (int z = 1-radius; z < radius; z++)
+            for (int z = 1 - radius; z < radius; z++)
             {
                 try
                 {
@@ -181,7 +203,8 @@ public class Grid : MonoBehaviour
                     {
                         grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].tower = true;
                     }
-                } catch { };
+                }
+                catch { };
             }
         }
     }
@@ -247,6 +270,14 @@ public class Grid : MonoBehaviour
                 else
                 {
                     Gizmos.color = Color.red;
+                }
+
+                if (path != null)
+                {
+                    if (path.Contains(node))
+                    {
+                        Gizmos.color = Color.cyan;
+                    }
                 }
                 Gizmos.DrawCube(node.worldPosition, new Vector3(nodeSizexz - .1f, nodeSizey - .1f, nodeSizexz - .1f));
             }

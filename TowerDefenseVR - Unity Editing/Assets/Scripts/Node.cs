@@ -8,13 +8,18 @@ public class Node
     public bool walkable;
     public bool tower;
     public bool teleporter;
-    public Node[] neighbours;
+    public List<Node> neighbours;
     public Vector3Int gridPosition;
+    public Node parent;
+
+    public int gCost;
+    public int hCost;
 
     public Node()
     {
         worldPosition = Vector3.zero;
         walkable = true;
+        neighbours = new List<Node>();
     }
 
     public Node(Vector3 pos, bool walk, Vector3Int gridPos)
@@ -22,5 +27,14 @@ public class Node
         worldPosition = pos;
         walkable = walk;
         gridPosition = gridPos;
+        neighbours = new List<Node>();
+    }
+
+    public int fCost
+    {
+        get
+        {
+            return gCost + hCost;
+        }
     }
 }
