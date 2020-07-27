@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public class Pathfinding : MonoBehaviour
 {
@@ -19,32 +20,26 @@ public class Pathfinding : MonoBehaviour
 
     void FindPath(Vector3 startPos, Vector3 targetPos)
     {
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
         Node startNode = grid.WorldToNode(startPos);
         Node targetNode = grid.WorldToNode(targetPos);
         Node current;
 
-        List<Node> openNodes = new List<Node>();
+        Heap<Node> openNodes = new Heap<Node>(grid.MaxHeapSize);
         HashSet<Node> closedNodes = new HashSet<Node>();
 
         openNodes.Add(startNode);
 
         while (openNodes.Count > 0)
         {
-            current = openNodes[0];
-
-            for (int i = 1; i < openNodes.Count; i++)
-            {
-                if (openNodes[i].fCost < current.fCost || (openNodes[i].fCost == current.fCost && openNodes[i].hCost < current.hCost))
-                {
-                    current = openNodes[i];
-                }
-            }
-
-            openNodes.Remove(current);
+            current = openNodes.RemoveTop();
             closedNodes.Add(current);
 
             if (current == targetNode)
             {
+                sw.Stop();
+                print("Time elapsed: " + sw.ElapsedMilliseconds + " ms");
                 RetracePath(startNode, targetNode);
                 return;
             }

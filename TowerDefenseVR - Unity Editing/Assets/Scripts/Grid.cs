@@ -233,6 +233,11 @@ public class Grid : MonoBehaviour
         towerIDToNode.Remove(tower.GetInstanceID());
     }
 
+    public int MaxHeapSize
+    {
+        get { return gridSizeX* gridSizeY * gridSizeZ; }
+    }
+
     private void OnDrawGizmos()
     {
         //draw main grid gizmo

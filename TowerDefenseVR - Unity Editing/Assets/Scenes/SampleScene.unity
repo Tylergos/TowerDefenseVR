@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridWorldSize: {x: 50, y: 10, z: 30}
-  nodeSizexz: 2
+  nodeSizexz: 0.5
   nodeSizey: 10
 --- !u!4 &387981473
 Transform:
