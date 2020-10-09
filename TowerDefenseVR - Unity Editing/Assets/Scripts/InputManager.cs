@@ -19,10 +19,10 @@ public class InputManager : MonoBehaviour
         //isPlacing = false;
     }
 
-    public void SetPlayer(GameObject player)
+    public void SetPlayer(GameObject _player)
     {
-        this.player = player;
-        playerScript = player.GetComponent<CharacterScript>();
+        this.player = _player;
+        playerScript = _player.GetComponent<CharacterScript>();
     }
 
     protected void Update()

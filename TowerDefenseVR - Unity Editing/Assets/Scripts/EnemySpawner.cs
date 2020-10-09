@@ -37,10 +37,10 @@ public class EnemySpawner : MonoBehaviour
         GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().SetSpawnerNode(spawn.transform.position);
     }
 
-    public void SetPlayer(GameObject playerObject)
+    public void SetPlayer(GameObject _playerObject)
     {
         //sets player enemy is tracking once spawned
-        player = playerObject;
+        player = _playerObject;
     }
 
     private void CalculateNumEnemies()

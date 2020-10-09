@@ -21,9 +21,9 @@ public class Bag : MonoBehaviour{
     {
         return enemiesRemaining;
     }
-    public void SetEnemiesRemaining(int a)
+    public void SetEnemiesRemaining(int _a)
     {
-        enemiesRemaining = a;
+        enemiesRemaining = _a;
     }
 
 
@@ -33,10 +33,5 @@ public class Bag : MonoBehaviour{
         level = 1;
         enemiesRemaining = 0;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

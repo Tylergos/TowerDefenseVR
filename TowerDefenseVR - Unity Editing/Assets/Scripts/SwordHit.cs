@@ -21,22 +21,22 @@ public class SwordHit : MonoBehaviour
         a = this.GetComponentInParent<Animator>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider _other)
     {
         if (a != null)
         {
             if (a.GetBool("Attack") && isPlayer)
             {
-                if (other.gameObject.tag == "Agent" && Time.time > nextHit)
+                if (_other.gameObject.tag == "Agent" && Time.time > nextHit)
                 {
                     nextHit = Time.time + hitDelay;
-                    enemy = other.GetComponent<EnemyNavigation>();
+                    enemy = _other.GetComponent<EnemyNavigation>();
                     if (!enemy.stun)
                     {
                         enemy.stun = true;
                         enemy.stunTime = Time.time + 1;
 
-                        other.attachedRigidbody.AddRelativeForce(Vector3.back * knockback);
+                        _other.attachedRigidbody.AddRelativeForce(Vector3.back * knockback);
                     }
                     if (enemy.invincibleTime <= Time.time)
                     {
@@ -47,11 +47,11 @@ public class SwordHit : MonoBehaviour
             }
             if (a.GetBool("Attack") && !isPlayer)
             {
-                if (other.gameObject.tag == "Player")
+                if (_other.gameObject.tag == "Player")
                 {
                     try
                     {
-                        player = other.GetComponent<CharacterScript>();
+                        player = _other.GetComponent<CharacterScript>();
                         if (player.GetITime() <= Time.time)
                         {
                             player.ReduceHealth(1);

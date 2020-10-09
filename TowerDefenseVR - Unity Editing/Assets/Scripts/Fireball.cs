@@ -27,23 +27,23 @@ public class Fireball : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (other.tag == "Agent")
+        if (_other.tag == "Agent")
         {
             Destroy(this.transform.parent.gameObject);
-            EnemyNavigation enemy = other.GetComponent<EnemyNavigation>();
+            EnemyNavigation enemy = _other.GetComponent<EnemyNavigation>();
             enemy.health--;
         }
-        if (other.tag == "Ground" || other.tag == "Wall")
+        if (_other.tag == "Ground" || _other.tag == "Wall")
         {
             Destroy(this.transform.parent.gameObject);
         }
     }
 
-    public void SetDirectionSpeed(Vector3 e, float s)
+    public void SetDirectionSpeed(Vector3 _e, float _s)
     {
-        direction = Vector3.Normalize( e - this.transform.position);
-        speed = s;
+        direction = Vector3.Normalize( _e - this.transform.position);
+        speed = _s;
     }
 }

@@ -69,12 +69,12 @@ public class Tower : MonoBehaviour
     }
 
 
-    private void Shoot(Vector3 e)
+    private void Shoot(Vector3 _e)
     {
         if (Time.time >= nextShot)
         {
             GameObject g = Instantiate(fireball, this.transform.position, this.transform.rotation);
-            g.GetComponentInChildren<Fireball>().SetDirectionSpeed(e, bulletSpeed);
+            g.GetComponentInChildren<Fireball>().SetDirectionSpeed(_e, bulletSpeed);
             nextShot = Time.time + shotTimer;
         }
     }

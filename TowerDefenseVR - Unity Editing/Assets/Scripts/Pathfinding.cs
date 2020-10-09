@@ -18,12 +18,12 @@ public class Pathfinding : MonoBehaviour
         FindPath(seeker.position, target.position);
     }
 
-    void FindPath(Vector3 startPos, Vector3 targetPos)
+    void FindPath(Vector3 _startPos, Vector3 _targetPos)
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
-        Node startNode = grid.WorldToNode(startPos);
-        Node targetNode = grid.WorldToNode(targetPos);
+        Node startNode = grid.WorldToNode(_startPos);
+        Node targetNode = grid.WorldToNode(_targetPos);
         Node current;
 
         Heap<Node> openNodes = new Heap<Node>(grid.MaxHeapSize);
@@ -65,12 +65,12 @@ public class Pathfinding : MonoBehaviour
         }
     }
 
-    void RetracePath(Node start, Node target)
+    void RetracePath(Node _start, Node _target)
     {
         List<Node> path = new List<Node>();
-        Node currentNode = target;
+        Node currentNode = _target;
 
-        while (currentNode != start)
+        while (currentNode != _start)
         {
             path.Add(currentNode);
             currentNode = currentNode.parent;
@@ -80,11 +80,11 @@ public class Pathfinding : MonoBehaviour
         grid.path = path;
     }
 
-    int GetDistance(Node node1, Node node2)
+    int GetDistance(Node _node1, Node _node2)
     {
         //only calculates horizontal distance to point
-        int dstX = Mathf.Abs(node1.gridPosition.x - node2.gridPosition.x);
-        int dstZ = Mathf.Abs(node1.gridPosition.z - node2.gridPosition.z);
+        int dstX = Mathf.Abs(_node1.gridPosition.x - _node2.gridPosition.x);
+        int dstZ = Mathf.Abs(_node1.gridPosition.z - _node2.gridPosition.z);
 
         return 14 * Mathf.Min(dstX, dstZ) + 10 * Mathf.Abs(dstX - dstZ);
     }

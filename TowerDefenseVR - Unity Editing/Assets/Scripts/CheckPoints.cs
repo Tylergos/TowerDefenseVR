@@ -7,11 +7,11 @@ public class CheckPoints : MonoBehaviour
     [SerializeField]
     private bool endPoint;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (endPoint && other.tag == "Agent")
+        if (endPoint && _other.tag == "Agent")
         {
-            other.GetComponent<EnemyNavigation>().ReachedEnd();
+            _other.GetComponent<EnemyNavigation>().ReachedEnd();
         }
     }
 

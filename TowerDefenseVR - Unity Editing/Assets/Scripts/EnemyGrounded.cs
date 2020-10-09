@@ -12,18 +12,18 @@ public class EnemyGrounded : MonoBehaviour
         e = this.gameObject.GetComponentInParent<EnemyNavigation>();
     }
     
-    private void  OnTriggerStay(Collider collider)
+    private void  OnTriggerStay(Collider _collider)
     {
-        if (collider.gameObject.tag == "Ground")
+        if (_collider.gameObject.tag == "Ground")
         {
             e.grounded = true;
-            this.GetComponentInParent<EnemyNavigation>().NextLocation(collider);
+            this.GetComponentInParent<EnemyNavigation>().NextLocation(_collider);
         }
     }
 
-    private void OnTriggerExit(Collider collider)
+    private void OnTriggerExit(Collider _collider)
     {
-        if (collider.gameObject.tag == "Ground")
+        if (_collider.gameObject.tag == "Ground")
         {
             e.grounded = false;
         }

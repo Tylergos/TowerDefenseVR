@@ -72,10 +72,10 @@ public class EnemyNavigation : MonoBehaviour
         teleporterTime = Time.time;
     }
 
-    public void setPlayer(GameObject player)
+    public void setPlayer(GameObject _player)
     {
         //sets playerscript for this object
-        this.player = player;
+        this.player = _player;
     }
 
     public int GetCurPoint()
@@ -96,10 +96,10 @@ public class EnemyNavigation : MonoBehaviour
         return speed;
     }
 
-    public void NextLocation(Collider collider)
+    public void NextLocation(Collider _collider)
     {
         //sets the next location of this object to the path marker from the ground
-        gs = collider.gameObject.GetComponent<GroundScript>();
+        gs = _collider.gameObject.GetComponent<GroundScript>();
         curPoint = gs.curPoint;
         point = gs.markers[pathChoice].gameObject.transform;
     }
@@ -114,14 +114,14 @@ public class EnemyNavigation : MonoBehaviour
         this.gameObject.transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void Attacking(GameObject other)
+    private void Attacking(GameObject _other)
     {
         //Used for attacking another object
-        float distance = (this.transform.position - other.transform.position).magnitude;
+        float distance = (this.transform.position - _other.transform.position).magnitude;
         //When outside the range of attack move towards the object
         if (distance > attackRange)
         {
-            distanceV3 = other.transform.position - this.gameObject.transform.position;
+            distanceV3 = _other.transform.position - this.gameObject.transform.position;
             distanceV3.y = 0;
             lookRotation = Quaternion.LookRotation(distanceV3.normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
@@ -131,7 +131,7 @@ public class EnemyNavigation : MonoBehaviour
         //When inside the range attack
         else
         {
-            distanceV3 = other.transform.position - this.gameObject.transform.position;
+            distanceV3 = _other.transform.position - this.gameObject.transform.position;
             distanceV3.y = 0;
             lookRotation = Quaternion.LookRotation(distanceV3.normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);

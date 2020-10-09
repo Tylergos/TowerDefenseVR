@@ -8,17 +8,17 @@ public class Heap<T> where T : IHeapItem<T>
     private T[] items;
     private int itemCount;
 
-    public Heap(int maxHeapSize)
+    public Heap(int _maxHeapSize)
     {
-        items = new T[maxHeapSize];
+        items = new T[_maxHeapSize];
         itemCount = 0;
     }
 
-    public void Add(T item)
+    public void Add(T _item)
     {
-        item.HeapIndex = itemCount;
-        items[itemCount] = item;
-        SortUp(item);
+        _item.HeapIndex = itemCount;
+        items[itemCount] = _item;
+        SortUp(_item);
         itemCount++;
     }
 
@@ -36,9 +36,9 @@ public class Heap<T> where T : IHeapItem<T>
         return top;
     }
 
-    public void UpdateItem(T item)
+    public void UpdateItem(T _item)
     {
-        SortUp(item);
+        SortUp(_item);
     }
 
     public int Count
@@ -47,33 +47,33 @@ public class Heap<T> where T : IHeapItem<T>
     }
 
 
-    public bool Contains(T item)
+    public bool Contains(T _item)
     {
-        return Equals(items[item.HeapIndex], item);
+        return Equals(items[_item.HeapIndex], _item);
     }
 
-    private void SortUp(T item)
+    private void SortUp(T _item)
     {
         //sorts the item up the heap
 
-        int parentIndex = (item.HeapIndex - 1) / 2;
+        int parentIndex = (_item.HeapIndex - 1) / 2;
         while(true)
         {
             T parentItem = items[parentIndex];
-            if (item.CompareTo(parentItem) > 0)
+            if (_item.CompareTo(parentItem) > 0)
             {
-                Swap(item, parentItem);
+                Swap(_item, parentItem);
             }
             else
             {
                 break;
             }
 
-            parentIndex = (item.HeapIndex - 1) / 2;
+            parentIndex = (_item.HeapIndex - 1) / 2;
         }
     }
 
-    private void SortDown(T item)
+    private void SortDown(T _item)
     {
         //sorts item down the heap
 
@@ -82,7 +82,7 @@ public class Heap<T> where T : IHeapItem<T>
         int child2Index;
         while (true)
         {
-            child1Index = (item.HeapIndex * 2) + 1;
+            child1Index = (_item.HeapIndex * 2) + 1;
             child2Index = child1Index + 1;
             if (itemCount > child1Index)
             {
@@ -96,9 +96,9 @@ public class Heap<T> where T : IHeapItem<T>
                     }
                 }
 
-                if (item.CompareTo(items[swapIndex]) < 0)
+                if (_item.CompareTo(items[swapIndex]) < 0)
                 {
-                    Swap(item, items[swapIndex]);
+                    Swap(_item, items[swapIndex]);
                 }
                 else
                 {
@@ -112,14 +112,14 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    private void Swap(T item1, T item2)
+    private void Swap(T _item1, T _item2)
     {
         //swaps two items in the heap
-        items[item1.HeapIndex] = item2;
-        items[item2.HeapIndex] = item1;
-        int item1Index = item1.HeapIndex;
-        item1.HeapIndex = item2.HeapIndex;
-        item2.HeapIndex = item1Index;
+        items[_item1.HeapIndex] = _item2;
+        items[_item2.HeapIndex] = _item1;
+        int item1Index = _item1.HeapIndex;
+        _item1.HeapIndex = _item2.HeapIndex;
+        _item2.HeapIndex = item1Index;
     }
 
 }

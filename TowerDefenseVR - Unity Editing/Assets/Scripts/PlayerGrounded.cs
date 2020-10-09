@@ -11,17 +11,17 @@ public class PlayerGrounded : MonoBehaviour
         p = this.GetComponentInParent<CharacterScript>();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _other)
     {
-        if (other.tag == "Ground")
+        if (_other.tag == "Ground")
         {
             p.ground = false;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider _other)
     {
-        if (other.tag == "Ground")
+        if (_other.tag == "Ground")
         {
             p.ground = true;
         }

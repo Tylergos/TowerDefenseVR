@@ -20,21 +20,21 @@ public class Teleporter : MonoBehaviour
         GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>().AddTeleporterNodes(this.gameObject, gridRadius);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (other.gameObject.tag == "Player")
+        if (_other.gameObject.tag == "Player")
         {
             try
             {
-                c = other.gameObject.GetComponent<CharacterScript>();
+                c = _other.gameObject.GetComponent<CharacterScript>();
                 c.teleporter = this;
                 c.teleporterCount = true;
             }
             catch { };
         }
-        else if (other.gameObject.tag == "Agent")
+        else if (_other.gameObject.tag == "Agent")
         {
-            e = other.gameObject.GetComponent<EnemyNavigation>();
+            e = _other.gameObject.GetComponent<EnemyNavigation>();
             e.teleporter = this;
             e.teleporterCount = true;
         }
@@ -50,25 +50,25 @@ public class Teleporter : MonoBehaviour
         return linkNum;
     }
 
-    public void Teleport(GameObject g)
+    public void Teleport(GameObject _g)
     {
-        g.transform.position = nextTeleporter.transform.position + new Vector3(0, g.GetComponent<Collider>().bounds.extents.y);
+        _g.transform.position = nextTeleporter.transform.position + new Vector3(0, _g.GetComponent<Collider>().bounds.extents.y);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _other)
     {
-        if (other.gameObject.tag.Equals("Player"))
+        if (_other.gameObject.tag.Equals("Player"))
         {
             try
             {
-                c = other.gameObject.GetComponent<CharacterScript>();
+                c = _other.gameObject.GetComponent<CharacterScript>();
                 c.teleporter = null;
             }
             catch { };
         }
-        else if (other.gameObject.tag.Equals("Agent"))
+        else if (_other.gameObject.tag.Equals("Agent"))
         {
-            e = other.gameObject.GetComponent<EnemyNavigation>();
+            e = _other.gameObject.GetComponent<EnemyNavigation>();
             e.teleporter = null;
         }
     }

@@ -81,90 +81,90 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void CreateNeighbours(Node node)
+    public void CreateNeighbours(Node _node)
     {
-        for (int x = node.gridPosition.x - 1; x <= node.gridPosition.x + 1; x++)
+        for (int x = _node.gridPosition.x - 1; x <= _node.gridPosition.x + 1; x++)
         {
-            for (int z = node.gridPosition.z - 1; z <= node.gridPosition.z + 1; z++)
+            for (int z = _node.gridPosition.z - 1; z <= _node.gridPosition.z + 1; z++)
             {
                 if (x < 0 || x >= gridSizeX || z < 0 || z >= gridSizeZ)
                     continue;
-                if (grid[x, node.gridPosition.y, z] != node)
+                if (grid[x, _node.gridPosition.y, z] != _node)
                 {
-                    node.neighbours.Add(grid[x, node.gridPosition.y, z]);
+                    _node.neighbours.Add(grid[x, _node.gridPosition.y, z]);
                 }
             }
         }
     }
 
-    public Vector3 GridToWorld(int x, int y, int z)
+    public Vector3 GridToWorld(int _x, int _y, int _z)
     {
         //calculates and returns grid position to world position
-        return new Vector3(this.transform.position.x - gridWorldSize.x / 2 + nodeHalfxz + x * nodeSizexz,
-            this.transform.position.y - gridWorldSize.y / 2 + nodeHalfy + y * nodeSizey,
-            this.transform.position.z - gridWorldSize.z / 2 + nodeHalfxz + z * nodeSizexz);
+        return new Vector3(this.transform.position.x - gridWorldSize.x / 2 + nodeHalfxz + _x * nodeSizexz,
+            this.transform.position.y - gridWorldSize.y / 2 + nodeHalfy + _y * nodeSizey,
+            this.transform.position.z - gridWorldSize.z / 2 + nodeHalfxz + _z * nodeSizexz);
     }
 
-    public Vector3 GridToWorld(Vector3 gridCoord)
+    public Vector3 GridToWorld(Vector3 _gridCoord)
     {
         //calculates and returns grid position to world position
-        return new Vector3(this.transform.position.x - gridWorldSize.x / 2 + nodeHalfxz + gridCoord.x * nodeSizexz,
-            this.transform.position.y - gridWorldSize.y / 2 + nodeHalfy + gridCoord.y * nodeSizey,
-            this.transform.position.z - gridWorldSize.z / 2 + nodeHalfxz + gridCoord.z * nodeSizexz);
+        return new Vector3(this.transform.position.x - gridWorldSize.x / 2 + nodeHalfxz + _gridCoord.x * nodeSizexz,
+            this.transform.position.y - gridWorldSize.y / 2 + nodeHalfy + _gridCoord.y * nodeSizey,
+            this.transform.position.z - gridWorldSize.z / 2 + nodeHalfxz + _gridCoord.z * nodeSizexz);
     }
 
-    public Node WorldToNode(float x, float y, float z)
+    public Node WorldToNode(float _x, float _y, float _z)
     {
         //calcualates and returns the node containing the world position
 
-        float percentX = Mathf.Clamp01((x - bottomLeftBack.x) / gridWorldSize.x);
-        float percentY = Mathf.Clamp01((y - bottomLeftBack.y) / gridWorldSize.y);
-        float percentZ = Mathf.Clamp01((z - bottomLeftBack.z) / gridWorldSize.z);
+        float percentX = Mathf.Clamp01((_x - bottomLeftBack.x) / gridWorldSize.x);
+        float percentY = Mathf.Clamp01((_y - bottomLeftBack.y) / gridWorldSize.y);
+        float percentZ = Mathf.Clamp01((_z - bottomLeftBack.z) / gridWorldSize.z);
 
         return grid[Mathf.RoundToInt(percentX * (gridSizeX - 1)), Mathf.RoundToInt(percentY * (gridSizeY - 1)), Mathf.RoundToInt(percentZ * (gridSizeZ - 1))];
     }
 
-    public Node WorldToNode(Vector3 worldCoord)
+    public Node WorldToNode(Vector3 _worldCoord)
     {
         //calcualates and returns the node containing the world position
-        float percentX = Mathf.Clamp01((worldCoord.x - bottomLeftBack.x) / gridWorldSize.x);
-        float percentY = Mathf.Clamp01((worldCoord.y - bottomLeftBack.y) / gridWorldSize.y);
-        float percentZ = Mathf.Clamp01((worldCoord.z - bottomLeftBack.z) / gridWorldSize.z);
+        float percentX = Mathf.Clamp01((_worldCoord.x - bottomLeftBack.x) / gridWorldSize.x);
+        float percentY = Mathf.Clamp01((_worldCoord.y - bottomLeftBack.y) / gridWorldSize.y);
+        float percentZ = Mathf.Clamp01((_worldCoord.z - bottomLeftBack.z) / gridWorldSize.z);
 
         return grid[Mathf.RoundToInt(percentX * (gridSizeX - 1)), Mathf.RoundToInt(percentY * (gridSizeY - 1)), Mathf.RoundToInt(percentZ * (gridSizeZ - 1))];
     }
 
-    private bool IsWalkablePosition(Vector3 pos)
+    private bool IsWalkablePosition(Vector3 _pos)
     {
         //checks area for unwalkable layer to determine if node is walkable
-        return !Physics.CheckBox(pos,
+        return !Physics.CheckBox(_pos,
             new Vector3(nodeHalfxz, nodeHalfy, nodeHalfxz), Quaternion.identity, unwalkable);
     }
 
-    public void SetPlayerNode(Vector3 pos)
+    public void SetPlayerNode(Vector3 _pos)
     {
         //sets player node on grid
-        playerNode = WorldToNode(pos);
+        playerNode = WorldToNode(_pos);
     }
 
-    public void SetEndNode(Vector3 pos)
+    public void SetEndNode(Vector3 _pos)
     {
         //sets end node on grid
-        endNode = WorldToNode(pos);
+        endNode = WorldToNode(_pos);
     }
 
-    public void SetSpawnerNode(Vector3 pos)
+    public void SetSpawnerNode(Vector3 _pos)
     {
-        spawnNode = WorldToNode(pos);
+        spawnNode = WorldToNode(_pos);
     }
 
-    public void AddTeleporterNodes(GameObject teleporter, int radius = 2)
+    public void AddTeleporterNodes(GameObject _teleporter, int _radius = 2)
     {
-        teleporters.Add(teleporter);
-        Vector3Int baseGrid = WorldToNode(teleporter.transform.position).gridPosition;
-        for (int x = 1 - radius; x < radius; x++)
+        teleporters.Add(_teleporter);
+        Vector3Int baseGrid = WorldToNode(_teleporter.transform.position).gridPosition;
+        for (int x = 1 - _radius; x < _radius; x++)
         {
-            for (int z = 1 - radius; z < radius; z++)
+            for (int z = 1 - _radius; z < _radius; z++)
             {
                 try
                 {
@@ -174,7 +174,7 @@ public class Grid : MonoBehaviour
                         grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z].teleporter = true;
                         try
                         {
-                            nodeToTeleporter.Add(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z], teleporter.GetComponent<Teleporter>());
+                            nodeToTeleporter.Add(grid[baseGrid.x + x, baseGrid.y, baseGrid.z + z], _teleporter.GetComponent<Teleporter>());
                         }
                         catch
                         {
@@ -187,14 +187,14 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void AddTowerNode(GameObject tower, int radius = 2)
+    public void AddTowerNode(GameObject _tower, int _radius = 2)
     {
-        towerIDToNode.Add(tower.GetInstanceID(), WorldToNode(tower.transform.position));
-        Vector3Int baseGrid = towerIDToNode[tower.GetInstanceID()].gridPosition;
+        towerIDToNode.Add(_tower.GetInstanceID(), WorldToNode(_tower.transform.position));
+        Vector3Int baseGrid = towerIDToNode[_tower.GetInstanceID()].gridPosition;
 
-        for (int x = 1 - radius; x < radius; x++)
+        for (int x = 1 - _radius; x < _radius; x++)
         {
-            for (int z = 1 - radius; z < radius; z++)
+            for (int z = 1 - _radius; z < _radius; z++)
             {
                 try
                 {
@@ -209,13 +209,13 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void RemoveTowerNode(GameObject tower, int radius = 2)
+    public void RemoveTowerNode(GameObject _tower, int _radius = 2)
     {
-        Vector3Int baseGrid = towerIDToNode[tower.GetInstanceID()].gridPosition;
+        Vector3Int baseGrid = towerIDToNode[_tower.GetInstanceID()].gridPosition;
 
-        for (int x = 1 - radius; x < radius; x++)
+        for (int x = 1 - _radius; x < _radius; x++)
         {
-            for (int z = 1 - radius; z < radius; z++)
+            for (int z = 1 - _radius; z < _radius; z++)
             {
                 try
                 {
@@ -230,7 +230,7 @@ public class Grid : MonoBehaviour
         }
 
         //removes tower from dictionary
-        towerIDToNode.Remove(tower.GetInstanceID());
+        towerIDToNode.Remove(_tower.GetInstanceID());
     }
 
     public int MaxHeapSize

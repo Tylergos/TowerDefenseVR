@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (other.tag == "Agent")
+        if (_other.tag == "Agent")
         {
-            other.GetComponent<EnemyNavigation>().attackMode = true;
-            other.GetComponent<EnemyNavigation>().attackObject = this.gameObject;
+            _other.GetComponent<EnemyNavigation>().attackMode = true;
+            _other.GetComponent<EnemyNavigation>().attackObject = this.gameObject;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _other)
     {
-        if (other.tag == "Agent")
+        if (_other.tag == "Agent")
         {
-            other.GetComponent<EnemyNavigation>().attackMode = false;
+            _other.GetComponent<EnemyNavigation>().attackMode = false;
         }
     }
 }

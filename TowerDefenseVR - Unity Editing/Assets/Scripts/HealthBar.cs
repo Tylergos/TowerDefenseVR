@@ -16,10 +16,10 @@ public class HealthBar : MonoBehaviour
         baseHeight = this.transform.localScale.y;
     }
 
-    public void ChangeHealth(float current, float total)
+    public void ChangeHealth(float _current, float _total)
     {
-        text.GetComponent<Text>().text = current.ToString() + "\n/\n" + total.ToString(); 
-        float per = current / total;
+        text.GetComponent<Text>().text = _current.ToString() + "\n/\n" + _total.ToString(); 
+        float per = _current / _total;
         newHeight = baseHeight * per;
         this.transform.localScale = new Vector3(this.transform.localScale.x, newHeight);
     }

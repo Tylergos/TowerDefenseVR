@@ -23,11 +23,11 @@ public class Node : IHeapItem<Node>
         neighbours = new List<Node>();
     }
 
-    public Node(Vector3 pos, bool walk, Vector3Int gridPos)
+    public Node(Vector3 _pos, bool _walk, Vector3Int _gridPos)
     {
-        worldPosition = pos;
-        walkable = walk;
-        gridPosition = gridPos;
+        worldPosition = _pos;
+        walkable = _walk;
+        gridPosition = _gridPos;
         neighbours = new List<Node>();
     }
 
@@ -51,12 +51,12 @@ public class Node : IHeapItem<Node>
         }
     }
 
-    public int CompareTo(Node other)
+    public int CompareTo(Node _other)
     {
-        int compare = fCost.CompareTo(other.fCost);
+        int compare = fCost.CompareTo(_other.fCost);
         if (compare == 0)
         {
-            compare = hCost.CompareTo(other.hCost);
+            compare = hCost.CompareTo(_other.hCost);
         }
         return -compare;
     }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour
 {
-    [SerializeField]
     private float speed;
+    private int maxHealth;
+    private int maxLevelXP;
+    private int level;
+    private int maxMana;
+    private int xp;
 
     float velocityY;
     float angVelocityY;
@@ -68,15 +72,8 @@ public class CharacterScript : MonoBehaviour
     public bool teleporterCount = false;
     [HideInInspector]
     public Teleporter teleporter;
-
-    [SerializeField]
-    private int maxHealth;
+    
     private int health;
-    [SerializeField]
-    private int maxLevelXP;
-    private int xp;
-    [SerializeField]
-    private int maxMana;
     private int mana;
 
     private float invincibleTime;
@@ -86,6 +83,13 @@ public class CharacterScript : MonoBehaviour
     public bool isPlacing;
 
     private Grid aiGrid;
+
+    protected void Awake()
+    {
+        xpBar = GameObject.FindGameObjectWithTag("UIXP");
+        healthBar = GameObject.FindGameObjectWithTag("UIHealth");
+        manaBar = GameObject.FindGameObjectWithTag("UIMana");
+    }
 
     // Use this for initialization
     protected void Start()
@@ -109,10 +113,6 @@ public class CharacterScript : MonoBehaviour
         col = this.GetComponent<Collider>();
         rotationMode = false;
         invincibleTime = Time.time;
-        xp = 0;
-        xpBar = GameObject.FindGameObjectWithTag("UIXP");
-        healthBar = GameObject.FindGameObjectWithTag("UIHealth");
-        manaBar = GameObject.FindGameObjectWithTag("UIMana");
         health = maxHealth;
         isPlacing = false;
 
@@ -123,6 +123,30 @@ public class CharacterScript : MonoBehaviour
 
 
         aiGrid = GameObject.FindGameObjectWithTag("AIGrid").GetComponent<Grid>();
+    }
+
+    public void SetStats(float _spd, int _maxHlth, int _maxMana, int _lvl, int _maxLvlXP, int _xp)
+    {
+        speed = _spd;
+        maxHealth = _maxHlth;
+        IncreaseHealth(_maxHlth);
+        level = _lvl;
+        maxLevelXP = _maxLvlXP;
+        maxMana = _maxMana;
+        IncreaseMana(_maxMana);
+        xp = 0;
+        IncreaseXP(_xp);
+    }
+
+    public Dictionary<string, float> GetStats()
+    {
+        Dictionary<string, float> stats = new Dictionary<string, float>();
+        stats.Add("speed", speed);
+        stats.Add("maxhealth", maxHealth);
+        stats.Add("maxmana", maxMana);
+        stats.Add("level", level);
+        stats.Add("xp", xp);
+        return stats;
     }
 
     // Update is called once per frame
@@ -153,6 +177,22 @@ public class CharacterScript : MonoBehaviour
                 Turning();
         }
 
+        //
+        //
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SavePlayer();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().LoadPlayer();
+        }
+
+        //
+        //
+
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
@@ -182,11 +222,11 @@ public class CharacterScript : MonoBehaviour
         return buildMode;
     }
 
-    public void AddITime(float seconds)
+    public void AddITime(float _seconds)
     {
-        if (Time.time + seconds > invincibleTime)
+        if (Time.time + _seconds > invincibleTime)
         {
-            invincibleTime = Time.time + seconds;
+            invincibleTime = Time.time + _seconds;
         }
     }
 
@@ -200,17 +240,17 @@ public class CharacterScript : MonoBehaviour
         return curWeapon;
     }
 
-    public void IsVR(bool isVR)
+    public void IsVR(bool _isVR)
     {
-        this.isVR = isVR;
+        this.isVR = _isVR;
     }
 
-    public void CurSightTowerVR(Vector3 origin, Vector3 dir)
+    public void CurSightTowerVR(Vector3 _origin, Vector3 _dir)
     {
         RaycastHit hit;
         canPlace = false;
 
-        if (Physics.Raycast(origin, dir, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null && !rotationMode)
+        if (Physics.Raycast(_origin, _dir, out hit, 8, unplacedTowerMask | placedTowerMask) && curTower != null && !rotationMode)
         {
             if (!Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .45f, unplacedTowerMask) && !Physics.CheckSphere(hit.point + new Vector3(0, .5f, 0), .55f, placedTowerMask | enemyMask))
             {
@@ -298,18 +338,18 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    public GameObject SelectWeaponVR(OVRCameraRig rig)
+    public GameObject SelectWeaponVR(OVRCameraRig _rig)
     {
         if (curWeapon == null)
         {
             if (curWeaponNum == 0)
             {
-                curWeapon = Instantiate(gunPrefab, rig.rightControllerAnchor);
+                curWeapon = Instantiate(gunPrefab, _rig.rightControllerAnchor);
                 gunAnimator = curWeapon.GetComponent<Animator>();
             }
             else if (curWeaponNum == 1)
             {
-                curWeapon = Instantiate(swordPrefab, rig.rightControllerAnchor);
+                curWeapon = Instantiate(swordPrefab, _rig.rightControllerAnchor);
                 swordAnimator = curWeapon.GetComponent<Animator>();
             }
         }
@@ -317,14 +357,14 @@ public class CharacterScript : MonoBehaviour
         {
             curWeaponNum = 0;
             Destroy(curWeapon);
-            curWeapon = Instantiate(gunPrefab, rig.rightControllerAnchor);
+            curWeapon = Instantiate(gunPrefab, _rig.rightControllerAnchor);
             gunAnimator = curWeapon.GetComponent<Animator>();
         }
         else if (!(curWeaponNum == 1) && gunAnimator.GetBool("Attack") == false)
         {
             curWeaponNum = 1;
             Destroy(curWeapon);
-            curWeapon = Instantiate(swordPrefab, rig.rightControllerAnchor);
+            curWeapon = Instantiate(swordPrefab, _rig.rightControllerAnchor);
             swordAnimator = curWeapon.GetComponent<Animator>();
         }
         return curWeapon;
@@ -383,7 +423,7 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    public void SelectTowerVR(bool input)
+    public void SelectTowerVR(bool _input)
     {
         if (curTower == null)
         {
@@ -408,7 +448,7 @@ public class CharacterScript : MonoBehaviour
             unplacedCollider = curTower.GetComponent<Collider>();
             unplacedCollider.enabled = false;
         }
-        else if (input)
+        else if (_input)
         {
             Destroy(curTower);
             curTowerNum++;
@@ -502,25 +542,25 @@ public class CharacterScript : MonoBehaviour
     }
 
     //Spawns selected tower
-    public void SpawnTower(bool buttonDown, bool buttonCurDown, bool buttonUp, float rotation)
+    public void SpawnTower(bool _buttonDown, bool _buttonCurDown, bool _buttonUp, float _rotation)
     {
 
-        if (buttonDown && canPlace)
+        if (_buttonDown && canPlace)
         {
             LastTower = Instantiate(towers[curTowerNum], curTower.transform.position, curTower.transform.rotation);
             placedTowers.Add(LastTower.GetInstanceID(), LastTower);
             totalTowerNum++;
             rotationMode = true;
         }
-        if (buttonCurDown && rotationMode)
+        if (_buttonCurDown && rotationMode)
         {
             try
             {
-                LastTower.transform.Rotate(0, horizontalSpeed * rotation, 0);
+                LastTower.transform.Rotate(0, horizontalSpeed * _rotation, 0);
             }
             catch { };
         }
-        if (buttonUp)
+        if (_buttonUp)
         {
             try
             {
@@ -532,11 +572,11 @@ public class CharacterScript : MonoBehaviour
         isPlacing = rotationMode;
     }
 
-    public void ReduceHealth(int damage)
+    public void ReduceHealth(int _damage)
     {
         if (invincibleTime <= Time.time)
         {
-            health -= damage;
+            health -= _damage;
             if (health < 0)
             {
                 //Debug.Log("Player died, current health:" + health);
@@ -545,9 +585,9 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth(int heal)
+    public void IncreaseHealth(int _heal)
     {
-        health += heal;
+        health += _heal;
         if (health > maxHealth)
         {
             health = maxHealth;
@@ -555,9 +595,9 @@ public class CharacterScript : MonoBehaviour
         healthBar.GetComponent<HealthBar>().ChangeHealth(health, maxHealth);
     }
 
-    public void IncreaseMana(int mana)
+    public void IncreaseMana(int _mana)
     {
-        this.mana += mana;
+        this.mana += _mana;
         if (this.mana > maxMana)
         {
             this.mana = maxMana;
@@ -565,9 +605,9 @@ public class CharacterScript : MonoBehaviour
         manaBar.GetComponent<ManaBar>().ChangeMana(this.mana, maxMana);
     }
 
-    public void DecreaseMana(int mana)
+    public void DecreaseMana(int _mana)
     {
-        this.mana -= mana;
+        this.mana -= _mana;
         if (this.mana < 0)
         {
             this.mana = 0;
@@ -575,9 +615,9 @@ public class CharacterScript : MonoBehaviour
         manaBar.GetComponent<ManaBar>().ChangeMana(this.mana, maxMana);
     }
 
-    public void IncreaseXP(int gain)
+    public void IncreaseXP(int _gain)
     {
-        xp += gain;
+        xp += _gain;
         if (xp >= maxLevelXP)
         {
             xp -= maxLevelXP;
@@ -606,18 +646,18 @@ public class CharacterScript : MonoBehaviour
         this.transform.Rotate(0, horizontalSpeed * Input.GetAxis("Mouse X"), 0);
     }
 
-    public void VRTurning(Vector2 input)
+    public void VRTurning(Vector2 _input)
     {
-        this.transform.Rotate(0, horizontalSpeed * input.x, 0);
+        this.transform.Rotate(0, horizontalSpeed * _input.x, 0);
     }
 
-    public void VRPlayerDirection(Vector2 input)
+    public void VRPlayerDirection(Vector2 _input)
     {
         direction = Vector3.zero;
 
-        direction += Vector3.forward * input.y;
+        direction += Vector3.forward * _input.y;
 
-        direction += Vector3.right * input.x;
+        direction += Vector3.right * _input.x;
     }
 
     protected void PlayerDirection()

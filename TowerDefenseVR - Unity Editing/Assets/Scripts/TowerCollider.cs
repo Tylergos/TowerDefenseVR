@@ -16,13 +16,13 @@ public class TowerCollider : MonoBehaviour
         return enemies;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _other)
     {
-        if (other.tag == "Agent")
+        if (_other.tag == "Agent")
         {
             try
             {
-                enemies.Add(other.gameObject);
+                enemies.Add(_other.gameObject);
             }
             catch {
                 //triggered when enemy in tower collider and player
@@ -32,11 +32,11 @@ public class TowerCollider : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _other)
     {
-        if (other.tag == "Agent" && enemies.Contains(other.gameObject))
+        if (_other.tag == "Agent" && enemies.Contains(_other.gameObject))
         {
-            enemies.Remove(other.gameObject);
+            enemies.Remove(_other.gameObject);
         }
     }
 }
